@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Event Boutique - mockup</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ <header class="app-header">
+ <h1>Event Boutique</h1>
+ <p>Produse și accesorii pentru evenimente speciale.</p>
+ <p class="app-count"> 3 produse, dintre care 2 disponibile</p>
+ </header>
+ <main class="container">
+ <section class="panel">
+<h2>Adaugă produs</h2>
+<form class="item-form">
+<label> Nume produs <input
+  type="text"
+  name="nume"
+placeholder="Ex: Invitație de nuntă" />
+ </label>
+<label>
+ Tip produs
+<select name="tip"><option value="invitatii">Invitații</option><option value="lumanari">Lumânări</option> <option value="accesorii">Accesorii</option>
+ </select>
+ </label>
+<button type="submit">Adaugă</button>
+</form>
+ </section>
+ <section class="panel">
+<h2>Produsele noastre</h2>
+<!-- Când lista e goală:
+ <p class="empty">Nu există niciun produs.</p>
+  --> <ul class="item-list">
+ <li class="item-card">
+ <div> <h3>Wedding Invitation</h3>
+<span class="badge badge-invitatii"> Invitații  </span>
+ </div>
+ <span class="status">Disponibil</span>
+ </li>
+<li class="item-card done">
+ <div>
+ <h3>Personalized Envelope</h3>
+ <span class="badge badge-accesorii"> Accesorii </span>
+                    </div>
+                    <span class="status">Indisponibil</span>
+                </li>
+
+                <li class="item-card">
+                    <div>
+                        <h3>Wedding Ring Mirror</h3>
+                        <span class="badge badge-accesorii">
+                            Accesorii
+                        </span>
+                    </div>
+                    <span class="status">Disponibil</span>
+                </li>
+
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="app-footer">
+        Proiect Tehnologii Web - Event Boutique
+    </footer>
+
+</body>
+
+</html>
