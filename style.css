@@ -85,7 +85,7 @@ button {
 
 input,
 select {
-    background: #ffffff;
+    background: white;
     color: var(--text);
 }
 
@@ -168,12 +168,14 @@ button:hover {
     outline-offset: 2px;
 }
 
+/* Telefon / ecran mic */
 @media (max-width: 700px) {
     .container {
         grid-template-columns: 1fr;
     }
 }
 
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
     :root {
         --bg: #211a1a;
