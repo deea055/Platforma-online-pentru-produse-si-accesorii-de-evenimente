@@ -3,18 +3,20 @@
 }
 
 :root {
-    --bg: #f7f3f0;
+    --bg: #fff8ef;
     --card: #ffffff;
-    --text: #332b28;
-    --muted: #817773;
-    --accent: #a67c68;
-    --accent-dark: #805d4d;
-    --accent-soft: #f1e5df;
-    --border: #ded4cf;
+    --text: #4a3b3b;
+    --muted: #8b7777;
 
-    --invitatii: #b88973;
-    --lumanari: #c49a6c;
-    --accesorii: #98766a;
+    --accent: #d8a7a7;
+    --accent-dark: #c48f8f;
+    --accent-soft: #f8e5e5;
+
+    --border: #eadada;
+
+    --invitatii: #d8a7a7;
+    --lumanari: #d9b49b;
+    --accesorii: #c99595;
 }
 
 body {
@@ -81,6 +83,12 @@ button {
     border: 1px solid var(--border);
 }
 
+input,
+select {
+    background: #ffffff;
+    color: var(--text);
+}
+
 button {
     background: var(--accent);
     color: white;
@@ -108,6 +116,7 @@ button:hover {
     padding: 14px 16px;
     border: 1px solid var(--border);
     border-radius: 10px;
+    background: var(--card);
 }
 
 .item-card:hover {
@@ -167,11 +176,19 @@ button:hover {
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #181412;
-        --card: #241e1b;
-        --text: #f3ece8;
-        --muted: #b8aaa3;
-        --border: #493c36;
-        --accent-soft: #352923;
+        --bg: #211a1a;
+        --card: #2d2323;
+        --text: #fff5f1;
+        --muted: #cfb9b5;
+        --border: #594545;
+        --accent: #c99595;
+        --accent-dark: #b57f7f;
+        --accent-soft: #443232;
+    }
+
+    input,
+    select {
+        background: #382b2b;
+        color: var(--text);
     }
 }
