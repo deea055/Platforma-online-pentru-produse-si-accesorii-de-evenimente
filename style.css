@@ -175,22 +175,3 @@ button:hover {
     }
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #211a1a;
-        --card: #2d2323;
-        --text: #fff5f1;
-        --muted: #cfb9b5;
-        --border: #594545;
-        --accent: #c99595;
-        --accent-dark: #b57f7f;
-        --accent-soft: #443232;
-    }
-
-    input,
-    select {
-        background: #382b2b;
-        color: var(--text);
-    }
-}
