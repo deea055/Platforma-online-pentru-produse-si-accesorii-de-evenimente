@@ -42,3 +42,29 @@ console.log(
     "Căutare 'wedding':",
     listeazaNume(cautaDupaNume(produse, "wedding")).join(", ")
 );
+function nextId(lista) {
+    return lista.reduce((max, p) => Math.max(max, p.id), 0) + 1;
+}
+
+function adaugaProdus(lista, nume, tip = "accesorii") {
+    const numeCurat = nume.trim();
+
+    if (numeCurat === "") {
+        console.log("Numele produsului nu poate fi gol.");
+        return lista;
+    }
+
+    if (!TIPURI.includes(tip)) {
+        console.log("Tipul produsului nu este valid.");
+        return lista;
+    }
+
+    const produsNou = {
+        id: nextId(lista),
+        nume: numeCurat,
+        indisponibil: false,
+        tip: tip
+    };
+
+    return [...lista, produsNou];
+}
