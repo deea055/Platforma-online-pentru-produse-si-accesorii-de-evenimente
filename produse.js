@@ -20,3 +20,8 @@ const produse = [
 ];
 
 const TIPURI = ["invitatii", "lumanari", "accesorii"];
+function listeazaNume(lista) {
+    return lista.map((p) => p.nume);
+}
+
+console.log("Nume produse:", listeazaNume(produse).join(", "));
