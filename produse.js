@@ -68,3 +68,14 @@ function adaugaProdus(lista, nume, tip = "accesorii") {
 
     return [...lista, produsNou];
 }
+function comutaDisponibilitate(lista, id) {
+    return lista.map((p) =>
+        p.id === id
+            ? { ...p, indisponibil: !p.indisponibil }
+            : p
+    );
+}
+
+function stergeProdus(lista, id) {
+    return lista.filter((p) => p.id !== id);
+}
