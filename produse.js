@@ -20,16 +20,24 @@ const produse = [
 ];
 
 const TIPURI = ["invitatii", "lumanari", "accesorii"];
+
+
+/* LISTAREA PRODUSELOR */
+
 function listeazaNume(lista) {
     return lista.map((p) => p.nume);
 }
 
-console.log("Nume produse:", listeazaNume(produse).join(", "));
-function listeazaNume(lista) {
-    return lista.map((p) => p.nume);
+
+/* NUMARAREA PRODUSELOR DISPONIBILE */
+
+function numaraDisponibile(lista) {
+    return lista.filter((p) => !p.indisponibil).length;
 }
 
-console.log("Nume produse:", listeazaNume(produse).join(", "));
+
+/* CAUTAREA DUPA NUME */
+
 function cautaDupaNume(lista, text) {
     const cautare = text.toLowerCase();
 
@@ -38,13 +46,18 @@ function cautaDupaNume(lista, text) {
     );
 }
 
-console.log(
-    "Căutare 'wedding':",
-    listeazaNume(cautaDupaNume(produse, "wedding")).join(", ")
-);
+
+/* CALCULAREA URMATORULUI ID */
+
 function nextId(lista) {
-    return lista.reduce((max, p) => Math.max(max, p.id), 0) + 1;
+    return lista.reduce(
+        (max, p) => Math.max(max, p.id),
+        0
+    ) + 1;
 }
+
+
+/* ADAUGAREA UNUI PRODUS */
 
 function adaugaProdus(lista, nume, tip = "accesorii") {
     const numeCurat = nume.trim();
@@ -68,6 +81,10 @@ function adaugaProdus(lista, nume, tip = "accesorii") {
 
     return [...lista, produsNou];
 }
+
+
+/* SCHIMBAREA DISPONIBILITATII */
+
 function comutaDisponibilitate(lista, id) {
     return lista.map((p) =>
         p.id === id
@@ -76,29 +93,80 @@ function comutaDisponibilitate(lista, id) {
     );
 }
 
+
+/* STERGEREA UNUI PRODUS */
+
 function stergeProdus(lista, id) {
     return lista.filter((p) => p.id !== id);
 }
+
+
+/* TESTE */
+
 console.log("--- Citire ---");
-console.log("Produse:", listeazaNume(produse).join(", "));
-console.log("Disponibile:", numaraDisponibile(produse));
+
 console.log(
-    "Căutare 'wedding':",
-    listeazaNume(cautaDupaNume(produse, "wedding")).join(", ")
+    "Produse:",
+    listeazaNume(produse).join(", ")
 );
 
+console.log(
+    "Disponibile:",
+    numaraDisponibile(produse)
+);
+
+console.log(
+    "Căutare 'wedding':",
+    listeazaNume(
+        cautaDupaNume(produse, "wedding")
+    ).join(", ")
+);
+
+
 console.log("--- Adăugare ---");
-let lista = adaugaProdus(produse, "Lumânare personalizată", "lumanari");
-console.log("Lista nouă:", lista.length, "produse");
-console.log("Originalul a rămas cu:", produse.length, "produse");
+
+let lista = adaugaProdus(
+    produse,
+    "Lumânare personalizată",
+    "lumanari"
+);
+
+console.log(
+    "Lista nouă:",
+    lista.length,
+    "produse"
+);
+
+console.log(
+    "Originalul a rămas cu:",
+    produse.length,
+    "produse"
+);
+
 
 console.log("--- Modificare și ștergere ---");
+
 lista = comutaDisponibilitate(lista, 1);
-console.log("După schimbarea id 1, disponibile:", numaraDisponibile(lista));
+
+console.log(
+    "După schimbarea id 1, disponibile:",
+    numaraDisponibile(lista)
+);
 
 lista = stergeProdus(lista, 3);
-console.log("După ștergerea id 3:", listeazaNume(lista).join(", "));
+
+console.log(
+    "După ștergerea id 3:",
+    listeazaNume(lista).join(", ")
+);
+
 
 console.log("--- Validare ---");
+
 adaugaProdus(lista, " ");
-adaugaProdus(lista, "Produs test", "tip-invalid");
+
+adaugaProdus(
+    lista,
+    "Produs test",
+    "tip-invalid"
+);
