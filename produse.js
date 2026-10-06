@@ -79,3 +79,26 @@ function comutaDisponibilitate(lista, id) {
 function stergeProdus(lista, id) {
     return lista.filter((p) => p.id !== id);
 }
+console.log("--- Citire ---");
+console.log("Produse:", listeazaNume(produse).join(", "));
+console.log("Disponibile:", numaraDisponibile(produse));
+console.log(
+    "Căutare 'wedding':",
+    listeazaNume(cautaDupaNume(produse, "wedding")).join(", ")
+);
+
+console.log("--- Adăugare ---");
+let lista = adaugaProdus(produse, "Lumânare personalizată", "lumanari");
+console.log("Lista nouă:", lista.length, "produse");
+console.log("Originalul a rămas cu:", produse.length, "produse");
+
+console.log("--- Modificare și ștergere ---");
+lista = comutaDisponibilitate(lista, 1);
+console.log("După schimbarea id 1, disponibile:", numaraDisponibile(lista));
+
+lista = stergeProdus(lista, 3);
+console.log("După ștergerea id 3:", listeazaNume(lista).join(", "));
+
+console.log("--- Validare ---");
+adaugaProdus(lista, " ");
+adaugaProdus(lista, "Produs test", "tip-invalid");
