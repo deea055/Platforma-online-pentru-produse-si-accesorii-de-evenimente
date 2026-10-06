@@ -30,3 +30,15 @@ function listeazaNume(lista) {
 }
 
 console.log("Nume produse:", listeazaNume(produse).join(", "));
+function cautaDupaNume(lista, text) {
+    const cautare = text.toLowerCase();
+
+    return lista.filter((p) =>
+        p.nume.toLowerCase().includes(cautare)
+    );
+}
+
+console.log(
+    "Căutare 'wedding':",
+    listeazaNume(cautaDupaNume(produse, "wedding")).join(", ")
+);
