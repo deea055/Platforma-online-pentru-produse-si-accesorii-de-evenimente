@@ -44,5 +44,5 @@ that read and change it. Results are printed in the browser console (F12).
 | S2-R3 | List, count, search, add, toggle, delete | [produse.js](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/produse.js#L27-L101) | Check console output |
 | S2-R4 | Add rejects empty name and invalid tag | [produse.js#L65-L73](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/produse.js#L65-L73) | Check last 2 console lines |
 | S2-R5 | Original array unchanged after add | [produse.js#L82](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/produse.js#L82) | Check console output |
-| S2-R6 | README Stage 2 section + AI log | README.md, ai-log/etapa-02.md | Read |
+| S2-R6 | README Stage 2 section + AI log | [README Stage 2](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/README.md?plain=1#L32-L37), [AI log](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/ai-log/etapa-02.md) | Read |
 | S2-R7 | Stage 2 commit pushed | GitHub commit history | Check commit history |
