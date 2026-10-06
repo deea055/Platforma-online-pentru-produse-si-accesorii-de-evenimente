@@ -175,3 +175,30 @@ button:hover {
     }
 }
 
+.app-header {
+    background: linear-gradient(90deg, #f8e2e0, #f3cccc, #f8e2e0);
+    color: #5a2025;
+    text-align: center;
+    padding: 28px 16px;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px;
+    font-weight: normal;
+}
+
+.header-hearts {
+    font-size: 24px;
+    line-height: 1;
+    color: #8f3e46;
+    margin-bottom: 4px;
+}
+
+.header-subtitle {
+    margin: 7px 0 0;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #71363b;
+}
