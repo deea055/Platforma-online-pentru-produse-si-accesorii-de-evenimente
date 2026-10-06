@@ -41,7 +41,7 @@ that read and change it. Results are printed in the browser console (F12).
 |---|---|---|---|
 | S2-R1 | JS file linked, logs on page load | [index.html#L69](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/index.html#L69) | Open page, F12 |
 | S2-R2 | 3+ items with id, name, state, tag | [produse.js#L1-L20](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/produse.js#L1-L20) | Read the products array |
-| S2-R3 | List, count, search, add, toggle, delete | produse.js | Check console output |
+| S2-R3 | List, count, search, add, toggle, delete | [produse.js](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/produse.js#L27-L101) | Check console output |
 | S2-R4 | Add rejects empty name and invalid tag | produse.js | Check last 2 console lines |
 | S2-R5 | Original array unchanged after add | produse.js | Check console output |
 | S2-R6 | README Stage 2 section + AI log | README.md, ai-log/etapa-02.md | Read |
