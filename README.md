@@ -35,4 +35,14 @@ that read and change it. Results are printed in the browser console (F12).
 - [x] Stage 2: data logic in JavaScript
 - [ ] Stage 3: Vite and React project
 
+## Stage 2 checklist
 
+| ID | Requirement | Where | How to check |
+|---|---|---|---|
+| S2-R1 | JS file linked, logs on page load | index.html, produse.js | Open page, F12 |
+| S2-R2 | 3+ items with id, name, state, tag | produse.js | Read the products array |
+| S2-R3 | List, count, search, add, toggle, delete | produse.js | Check console output |
+| S2-R4 | Add rejects empty name and invalid tag | produse.js | Check last 2 console lines |
+| S2-R5 | Original array unchanged after add | produse.js | Check console output |
+| S2-R6 | README Stage 2 section + AI log | README.md, ai-log/etapa-02.md | Read |
+| S2-R7 | Stage 2 commit pushed | GitHub commit history | Check commit history |
