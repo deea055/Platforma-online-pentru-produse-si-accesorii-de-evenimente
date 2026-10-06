@@ -45,4 +45,4 @@ that read and change it. Results are printed in the browser console (F12).
 | S2-R4 | Add rejects empty name and invalid tag | [produse.js#L65-L73](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/produse.js#L65-L73) | Check last 2 console lines |
 | S2-R5 | Original array unchanged after add | [produse.js#L82](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/produse.js#L82) | Check console output |
 | S2-R6 | README Stage 2 section + AI log | [README Stage 2](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/README.md?plain=1#L32-L37), [AI log](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/ai-log/etapa-02.md) | Read |
-| S2-R7 | Stage 2 commit pushed | GitHub commit history | Check commit history |
+| S2-R7 | Stage 2 commit pushed | [Stage 2 commit](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/commit/0dbbb46b21cb1c677d9c43a021bb7bb717bbfa38) | Check commit history |
