@@ -25,3 +25,8 @@ function listeazaNume(lista) {
 }
 
 console.log("Nume produse:", listeazaNume(produse).join(", "));
+function listeazaNume(lista) {
+    return lista.map((p) => p.nume);
+}
+
+console.log("Nume produse:", listeazaNume(produse).join(", "));
