@@ -22,7 +22,7 @@ const produse = [
 const TIPURI = ["invitatii", "lumanari", "accesorii"];
 
 
-/* LISTAREA PRODUSELOR */
+/* LISTAREA NUMELOR */
 
 function listeazaNume(lista) {
     return lista.map((p) => p.nume);
@@ -101,7 +101,7 @@ function stergeProdus(lista, id) {
 }
 
 
-/* TESTE */
+/* TESTE IN CONSOLA */
 
 console.log("--- Citire ---");
 
