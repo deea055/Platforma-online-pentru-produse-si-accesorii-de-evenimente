@@ -78,3 +78,15 @@ npm run build
 
 Comanda de build a fost executată cu succes.
   
+
+  ## Etapa 3 – Tabel de verificare
+
+| ID | Cerință | Unde se verifică | Cum se verifică |
+|---|---|---|---|
+| S3-R1 | Aplicația React pornește fără erori | `frontend/package.json` | Se rulează `npm install` și `npm run dev` |
+| S3-R2 | Aplicația afișează numele și contorul calculat din date | `frontend/src/App.jsx` | Se verifică numărul produselor afișate |
+| S3-R3 | Sunt folosite date specifice proiectului Event Boutique | `frontend/src/App.jsx` | Se verifică lista produselor |
+| S3-R4 | Stilurile din Etapa 1 sunt reutilizate | `frontend/src/App.css` | Se compară aspectul cu macheta inițială |
+| S3-R5 | Folderul `node_modules` este ignorat și build-ul funcționează | `frontend/.gitignore` | Se rulează `npm run build` |
+| S3-R6 | README-ul și jurnalul AI sunt completate | `README.md`, `ai-log/etapa-03.md` | Se verifică documentația |
+| S3-R7 | Etapa 3 este publicată pe GitHub | Istoricul commiturilor | Se verifică commitul „Etapa 3 - Aplicatie React Event Boutique” |
