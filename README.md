@@ -46,3 +46,35 @@ that read and change it. Results are printed in the browser console (F12).
 | S2-R5 | Original array unchanged after add | [produse.js#L82](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/produse.js#L82) | Check console output |
 | S2-R6 | README Stage 2 section + AI log | [README Stage 2](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/README.md?plain=1#L32-L37), [AI log](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/blob/main/ai-log/etapa-02.md) | Read |
 | S2-R7 | Stage 2 commit pushed | [Stage 2 commit](https://github.com/deea055/Platforma-online-pentru-produse-si-accesorii-de-evenimente/commit/0dbbb46b21cb1c677d9c43a021bb7bb717bbfa38) | Check commit history |
+
+
+## Etapa 3 – Interfață React
+
+În această etapă am realizat interfața aplicației Event Boutique folosind React și Vite.
+
+Funcționalități implementate:
+- Afișarea listei de produse
+- Adăugarea unui produs nou
+- Căutarea produselor după nume
+- Schimbarea disponibilității produselor
+- Ștergerea produselor
+- Salvarea datelor în localStorage
+
+Aplicația folosește componente React, inclusiv componenta separată ProdusCard.jsx.
+
+### Rularea aplicației
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### Verificarea aplicației
+
+```bash
+npm run build
+```
+
+Comanda de build a fost executată cu succes.
+  
