@@ -17,3 +17,8 @@ Am pornit aplicația cu npm run dev și am verificat afișarea produselor, adău
 
 ## Contribuție proprie
 Am adaptat componentele la proiectul Event Boutique și am testat funcționarea aplicației în browser.
+
+## Link conversație AI
+
+Link către conversația ChatGPT utilizată pentru realizarea proiectului:
+https://chatgpt.com/share/6adaee48-b19c-83ed-a6be-ae4c2994e209
