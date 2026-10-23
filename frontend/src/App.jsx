@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react'
 import './App.css'
-import ProdusCard from './components/ProdusCard'
+import ProdusList from './components/ProdusList'
 
 const produseInitiale = [
   {
@@ -155,22 +155,11 @@ useEffect(() => {
           </p>
 
           {/* Lista produselor */}
-          {produse.length === 0 ? (
-            <p>Nu există produse.</p>
-          ) : produseFiltrate.length === 0 ? (
-            <p>Nu s-au găsit produse.</p>
-          ) : (
-            <ul className="item-list">
-              {produseFiltrate.map((produs) => (
-                <ProdusCard
-                  key={produs.id}
-                  produs={produs}
-                  schimbaDisponibilitate={schimbaDisponibilitate}
-                  stergeProdus={stergeProdus}
-                />
-              ))}
-            </ul>
-          )}
+          <ProdusList
+  produse={produseFiltrate}
+  schimbaDisponibilitate={schimbaDisponibilitate}
+  stergeProdus={stergeProdus}
+/>
         </section>
       </main>
 

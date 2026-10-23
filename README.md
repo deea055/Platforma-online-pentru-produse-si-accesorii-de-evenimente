@@ -90,3 +90,14 @@ Comanda de build a fost executată cu succes.
 | S3-R5 | Folderul `node_modules` este ignorat și build-ul funcționează | `frontend/.gitignore` | Se rulează `npm run build` |
 | S3-R6 | README-ul și jurnalul AI sunt completate | `README.md`, `ai-log/etapa-03.md` | Se verifică documentația |
 | S3-R7 | Etapa 3 este publicată pe GitHub | Istoricul commiturilor | Se verifică commitul „Etapa 3 - Aplicatie React Event Boutique” |
+
+
+## Etapa 4 – Componente React
+
+În această etapă am organizat afișarea produselor folosind componente React separate.
+
+- `ProdusCard.jsx` – afișează informațiile unui produs și butoanele pentru disponibilitate și ștergere.
+- `ProdusList.jsx` – primește lista produselor prin props și o afișează folosind `map()` și `key={produs.id}`.
+- `App.jsx` – gestionează datele produselor și transmite informațiile și funcțiile către componente.
+
+Am verificat afișarea produselor, adăugarea unui produs nou, lista goală și actualizarea contorului. Designul Event Boutique a fost păstrat.
