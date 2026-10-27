@@ -1,30 +1,25 @@
-
 function ProdusCard({ produs, schimbaDisponibilitate, stergeProdus }) {
   return (
-    <li
-      className={`item-card ${produs.indisponibil ? 'done' : ''}`}
-    >
-      <div>
-        <h3>{produs.nume}</h3>
+    <li className={`item-card ${produs.indisponibil ? 'done' : ''}`}>
+      <label className="produs-main">
+        <input
+          type="checkbox"
+          checked={produs.indisponibil}
+          onChange={() => schimbaDisponibilitate(produs.id)}
+        />
 
-        <span className="badge badge-accesorii">
-          {produs.tip}
-        </span>
-      </div>
+        <div>
+          <h3>{produs.nume}</h3>
+          <span className="badge badge-accesorii">{produs.tip}</span>
+        </div>
+      </label>
 
       <div className="item-actions">
         <button
           type="button"
-          className="status-button"
-          onClick={() => schimbaDisponibilitate(produs.id)}
-        >
-          {produs.indisponibil ? 'Indisponibil' : 'Disponibil'}
-        </button>
-
-        <button
-          type="button"
           className="delete-button"
           onClick={() => stergeProdus(produs.id)}
+          aria-label={`Șterge ${produs.nume}`}
         >
           Șterge
         </button>

@@ -1,9 +1,28 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+
+/* Event Boutique - Stilurile principale */
+
+/* Banner cu fundite si flori */
+
 .app-header {
-  background: linear-gradient(120deg, #d8a4aa, #f3d9d5);
+  background-color: #f5cbd0;
+  background-image: url('/banner-event-boutique.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: #4b2631;
   text-align: center;
   padding: 45px 20px;
+  min-height: 250px;
+  box-sizing: border-box;
+}
+
+.header-content {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1;
 }
 
 .header-symbol {
@@ -21,6 +40,8 @@
   font-size: 13px;
   letter-spacing: 2px;
 }
+
+/* Continutul aplicatiei */
 
 .container {
   max-width: 1100px;
@@ -45,6 +66,8 @@
   font-family: Georgia, serif;
   color: #683b49;
 }
+
+/* Formularul de adaugare produse */
 
 .item-form,
 .item-form label {
@@ -81,6 +104,32 @@
   background: #a85d70;
 }
 
+/* Font caligrafic pentru formular */
+
+.item-form label {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.item-form input,
+.item-form select {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.item-form button {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Lista produselor */
+
 .app-count {
   color: #8a747a;
   font-size: 14px;
@@ -103,11 +152,15 @@
   border-radius: 10px;
   padding: 15px;
   background: white;
+  min-height: 72px;
 }
 
 .item-card h3 {
-  margin: 0 0 8px;
-  font-size: 17px;
+  margin: 0 0 6px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 25px;
+  font-style: italic;
+  font-weight: 600;
 }
 
 .item-card.done h3 {
@@ -119,8 +172,11 @@
   background: #c88e9b;
   color: white;
   border-radius: 20px;
-  padding: 4px 10px;
-  font-size: 12px;
+  padding: 4px 12px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 600;
 }
 
 .status {
@@ -128,21 +184,7 @@
   font-size: 13px;
 }
 
-.app-footer {
-  text-align: center;
-  color: #987f87;
-  padding: 30px;
-}
-
-@media (max-width: 700px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
-
-  .app-header h1 {
-    font-size: 34px;
-  }
-}
+/* Butoanele produselor */
 
 .status-button {
   background: #f4e2e5;
@@ -165,12 +207,17 @@
   border-radius: 20px;
   padding: 8px 12px;
   cursor: pointer;
-  font-size: 13px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 600;
 }
 
 .delete-button:hover {
   background: #f9e5e9;
 }
+
+/* Bara de cautare */
 
 .search-input {
   width: 100%;
@@ -187,4 +234,178 @@
 .search-input:focus {
   outline: 2px solid #c18090;
   outline-offset: 2px;
+}
+
+/* Checkbox produse */
+
+.produs-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.produs-main input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #bf7f90;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.produs-main h3 {
+  margin: 0 0 6px;
+}
+
+/* Buton pentru schimbarea temei */
+
+.light-mode,
+.dark-mode {
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  padding: 10px 16px;
+  border: 1px solid #b97989;
+  border-radius: 20px;
+  background: #fff7f8;
+  color: #653c48;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.theme-toggle:hover {
+  background: #f4e2e5;
+}
+
+/* Modul intunecat */
+
+.dark-mode {
+  background-color: #241e25;
+  color: #f8e9ee;
+}
+
+.dark-mode .app-header {
+  background-color: #49313f;
+  background-image:
+    linear-gradient(#301b2a66, #301b2a66),
+    url('/banner-event-boutique.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.dark-mode .app-header h1,
+.dark-mode .app-header p,
+.dark-mode .header-symbol {
+  color: #fff0f4;
+}
+
+.dark-mode .panel {
+  background: #342a35;
+  border-color: #654858;
+  box-shadow: 0 4px 15px #120d1280;
+}
+
+.dark-mode .panel h2,
+.dark-mode .item-card h3,
+.dark-mode label {
+  color: #f8e9ee;
+}
+
+.dark-mode .item-card {
+  background: #443544;
+  border-color: #705466;
+}
+
+.dark-mode .item-form input,
+.dark-mode .item-form select,
+.dark-mode .search-input {
+  background: #493b49;
+  color: #ffffff;
+  border-color: #886c7b;
+}
+
+.dark-mode input::placeholder {
+  color: #d4bdc8;
+}
+
+.dark-mode .app-count,
+.dark-mode .app-footer {
+  color: #e1c5d0;
+}
+
+.dark-mode .theme-toggle {
+  background: #65475a;
+  color: #ffffff;
+  border-color: #b98c9e;
+}
+
+.dark-mode .theme-toggle:hover {
+  background: #805a70;
+}
+
+.dark-mode .delete-button {
+  background: #493544;
+  color: #ffe3eb;
+  border-color: #bb8296;
+}
+
+.dark-mode .delete-button:hover {
+  background: #694658;
+}
+
+.dark-mode .item-card.done h3 {
+  color: #c5a9b6;
+  text-decoration: line-through;
+}
+
+/* Subsolul paginii */
+
+.app-footer {
+  text-align: center;
+  color: #987f87;
+  padding: 30px;
+}
+
+/* Adaptare pentru telefon */
+
+@media (max-width: 700px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .app-header {
+    min-height: 220px;
+    padding: 45px 15px 25px;
+    background-position: center;
+  }
+
+  .app-header h1 {
+    font-size: 34px;
+  }
+
+  .app-header p {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .theme-toggle {
+    position: static;
+    margin-bottom: 15px;
+  }
+}
+
+/* Font caligrafic pentru butonul de schimbare a temei */
+
+.theme-toggle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 21px;
+  font-style: italic;
+  font-weight: 600;
 }

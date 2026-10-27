@@ -101,3 +101,32 @@ Comanda de build a fost executată cu succes.
 - `App.jsx` – gestionează datele produselor și transmite informațiile și funcțiile către componente.
 
 Am verificat afișarea produselor, adăugarea unui produs nou, lista goală și actualizarea contorului. Designul Event Boutique a fost păstrat.
+
+
+
+## Etapa 5 – State local și evenimente
+
+În această etapă am îmbunătățit aplicația Event Boutique folosind React Hooks și evenimente.
+
+### Funcționalități implementate
+
+- Marcarea produselor folosind checkbox-uri.
+- Schimbarea disponibilității produselor.
+- Ștergerea produselor din listă.
+- Actualizarea automată a numărului de produse disponibile.
+- Salvarea produselor în localStorage.
+- Schimbarea între modul luminos și modul întunecat.
+- Folosirea atributului data-theme pentru identificarea temei.
+
+### Tehnologii utilizate
+
+- React
+- useState
+- useEffect
+- JavaScript
+- CSS
+- localStorage
+
+### Testare
+
+Am verificat funcționalitățile în browser. Produsele rămân salvate după reîncărcarea paginii, iar schimbarea temei funcționează în ambele sensuri.

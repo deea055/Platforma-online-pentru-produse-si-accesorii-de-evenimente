@@ -25,16 +25,30 @@ const produseInitiale = [
 ]
 
 function App() {
+  // Citirea produselor salvate in localStorage
   const [produse, setProduse] = useState(() => {
-  const salvate = localStorage.getItem('produse')
-  return salvate ? JSON.parse(salvate) : produseInitiale
-})
-useEffect(() => {
-  localStorage.setItem('produse', JSON.stringify(produse))
-}, [produse])
+    const salvate = localStorage.getItem('produse')
+    return salvate ? JSON.parse(salvate) : produseInitiale
+  })
+
+  // Salvarea automata a produselor
+  useEffect(() => {
+    localStorage.setItem('produse', JSON.stringify(produse))
+  }, [produse])
+
   const [nume, setNume] = useState('')
   const [tip, setTip] = useState('Invitații')
   const [cautare, setCautare] = useState('')
+
+  // Etapa 5 - Starea pentru modul luminos/intunecat
+  const [darkMode, setDarkMode] = useState(false)
+
+  useEffect(() => {
+    document.documentElement.setAttribute(
+      'data-theme',
+      darkMode ? 'dark' : 'light'
+    )
+  }, [darkMode])
 
   // Adaugarea unui produs
   function adaugaProdus(e) {
@@ -85,18 +99,37 @@ useEffect(() => {
   ).length
 
   return (
-    <>
+    <div className={darkMode ? 'dark-mode' : 'light-mode'}>
+
+      {/* Banner principal Event Boutique */}
       <header className="app-header">
         <div className="header-content">
+
+          {/* Buton pentru schimbarea temei */}
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={() => setDarkMode((modAnterior) => !modAnterior)}
+            aria-pressed={darkMode}
+          >
+            {darkMode ? '☀️ Mod luminos' : '🌙 Mod întunecat'}
+          </button>
+
           <div className="header-symbol">♡♡</div>
+
           <h1>Event Boutique</h1>
+
           <p>
             PRODUSE ȘI ACCESORII PENTRU MOMENTE SPECIALE
           </p>
+
         </div>
       </header>
 
+      {/* Continutul aplicatiei */}
       <main className="container">
+
+        {/* Formular pentru adaugarea produselor */}
         <section className="panel">
           <h2>Adaugă produs</h2>
 
@@ -132,6 +165,7 @@ useEffect(() => {
           </form>
         </section>
 
+        {/* Lista produselor */}
         <section className="panel">
           <h2>Produsele noastre</h2>
 
@@ -154,19 +188,20 @@ useEffect(() => {
               : 'disponibile'}
           </p>
 
-          {/* Lista produselor */}
           <ProdusList
-  produse={produseFiltrate}
-  schimbaDisponibilitate={schimbaDisponibilitate}
-  stergeProdus={stergeProdus}
-/>
+            produse={produseFiltrate}
+            schimbaDisponibilitate={schimbaDisponibilitate}
+            stergeProdus={stergeProdus}
+          />
         </section>
+
       </main>
 
       <footer className="app-footer">
         Proiect Tehnologii Web - Event Boutique
       </footer>
-    </>
+
+    </div>
   )
 }
 
