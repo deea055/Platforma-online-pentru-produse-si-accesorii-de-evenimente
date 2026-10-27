@@ -41,3 +41,10 @@ Am verificat:
 În această etapă am înțeles mai bine utilizarea
 useState și useEffect, gestionarea evenimentelor
 și salvarea datelor în localStorage.
+
+
+## 6. Link conversație ChatGPT
+
+Link către conversația utilizată pentru realizarea Etapei 5:
+
+[[Conversație ChatGPT](https://chatgpt.com/share/6ae0a1a2-3fd0-83eb-b2b0-1e027326edb4)]
