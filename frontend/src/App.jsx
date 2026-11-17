@@ -1,8 +1,20 @@
 
 import { useState, useEffect } from 'react'
 import './App.css'
+
+// Componentele existente pentru afisarea produselor
 import ProdusList from './components/ProdusList'
-import { fetchProduse } from './api.js'
+
+// Etapa 7 - Componenta noua pentru formular
+import ProdusForm from './components/ProdusForm'
+
+// Etapa 7 - Functiile pentru comunicarea cu serverul
+import {
+  fetchProduse,
+  createProdus,
+  updateProdus,
+  deleteProdus,
+} from './api.js'
 
 function App() {
   // Etapa 6 - Produsele sunt incarcate de pe server
@@ -10,22 +22,32 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  // Incarcarea produselor din API
+  // Etapa 4 - State pentru cautarea produselor
+  const [cautare, setCautare] = useState('')
+
+  // Etapa 5 - Modul luminos/intunecat
+  const [darkMode, setDarkMode] = useState(false)
+
+  // Etapa 6 - Incarcarea produselor din API
   useEffect(() => {
     let ignore = false
 
     async function incarcaProduse() {
       try {
+        // Cere produsele salvate pe server
         const date = await fetchProduse()
 
         if (!ignore) {
           setProduse(date)
+          setError(null)
         }
       } catch (err) {
+        // Afiseaza eroarea daca serverul nu raspunde
         if (!ignore) {
           setError(err.message)
         }
       } finally {
+        // Opreste mesajul de incarcare
         if (!ignore) {
           setLoading(false)
         }
@@ -39,14 +61,7 @@ function App() {
     }
   }, [])
 
-  // State pentru formular si cautare
-  const [nume, setNume] = useState('')
-  const [tip, setTip] = useState('Invitații')
-  const [cautare, setCautare] = useState('')
-
-  // Etapa 5 - Modul luminos/intunecat
-  const [darkMode, setDarkMode] = useState(false)
-
+  // Etapa 5 - Schimbarea temei aplicatiei
   useEffect(() => {
     document.documentElement.setAttribute(
       'data-theme',
@@ -54,50 +69,73 @@ function App() {
     )
   }, [darkMode])
 
-  // Adaugarea unui produs (local, pana la Etapa 7)
-  function adaugaProdus(e) {
-    e.preventDefault()
+  // Etapa 7 - Adaugarea unui produs pe server
+  async function adaugaProdus(produsNou) {
+    // Trimite produsul catre API
+    const produsSalvat = await createProdus(produsNou)
 
-    if (!nume.trim()) return
+    // Adauga produsul in lista doar dupa salvare
+    // ID-ul produsului este primit de la server
+    setProduse((listaVeche) => [
+      ...listaVeche,
+      produsSalvat,
+    ])
 
-    const produsNou = {
-      id: Date.now(),
-      nume: nume.trim(),
-      tip: tip,
-      indisponibil: false,
-    }
-
-    setProduse((listaVeche) => [...listaVeche, produsNou])
-    setNume('')
+    // Sterge o eventuala eroare anterioara
+    setError(null)
   }
 
-  // Schimbarea disponibilitatii (local)
-  function schimbaDisponibilitate(id) {
-    setProduse((listaVeche) =>
-      listaVeche.map((produs) =>
-        produs.id === id
-          ? {
-              ...produs,
-              indisponibil: !produs.indisponibil,
-            }
-          : produs
+  // Etapa 7 - Schimbarea disponibilitatii pe server
+  async function schimbaDisponibilitate(id) {
+    // Cauta produsul selectat
+    const produs = produse.find((p) => p.id === id)
+
+    if (!produs) return
+
+    try {
+      // Trimite noua disponibilitate catre server
+      const produsActualizat = await updateProdus(id, {
+        indisponibil: !produs.indisponibil,
+      })
+
+      // Modifica lista doar dupa raspunsul serverului
+      setProduse((listaVeche) =>
+        listaVeche.map((p) =>
+          p.id === id ? produsActualizat : p
+        )
       )
-    )
+
+      setError(null)
+    } catch (err) {
+      // Daca apare o eroare, produsul ramane nemodificat
+      setError(err.message)
+    }
   }
 
-  // Stergerea unui produs (local)
-  function stergeProdus(id) {
-    setProduse((listaVeche) =>
-      listaVeche.filter((produs) => produs.id !== id)
-    )
+  // Etapa 7 - Stergerea unui produs de pe server
+  async function stergeProdus(id) {
+    try {
+      // Cere serverului sa stearga produsul
+      await deleteProdus(id)
+
+      // Elimina produsul din lista dupa confirmare
+      setProduse((listaVeche) =>
+        listaVeche.filter((produs) => produs.id !== id)
+      )
+
+      setError(null)
+    } catch (err) {
+      // Afiseaza eroarea daca stergerea nu reuseste
+      setError(err.message)
+    }
   }
 
-  // Filtrarea produselor dupa nume
+  // Etapa 4 - Filtrarea produselor dupa nume
   const produseFiltrate = produse.filter((produs) =>
     produs.nume.toLowerCase().includes(cautare.toLowerCase())
   )
 
-  // Numarul produselor disponibile
+  // Etapa 4 - Numarul produselor disponibile
   const disponibile = produse.filter(
     (produs) => !produs.indisponibil
   ).length
@@ -109,14 +147,14 @@ function App() {
       <header className="app-header">
         <div className="header-content">
 
-          {/* Buton pentru schimbarea temei */}
+          {/* Etapa 5 - Buton pentru schimbarea temei */}
           <button
             type="button"
             className="theme-toggle"
             onClick={() => setDarkMode((modAnterior) => !modAnterior)}
             aria-pressed={darkMode}
           >
-            {darkMode ? '☀️ Mod luminos' : '🌙 Mod întunecat'}
+            {darkMode ? '☀️ Mod luminos' : '🌙 Mod intunecat'}
           </button>
 
           <div className="header-symbol">♡♡</div>
@@ -124,7 +162,7 @@ function App() {
           <h1>Event Boutique</h1>
 
           <p>
-            PRODUSE ȘI ACCESORII PENTRU MOMENTE SPECIALE
+            PRODUSE SI ACCESORII PENTRU MOMENTE SPECIALE
           </p>
 
         </div>
@@ -133,74 +171,46 @@ function App() {
       {/* Continutul aplicatiei */}
       <main className="container">
 
-        {/* Formular pentru adaugarea produselor */}
+        {/* Etapa 7 - Formular pentru adaugarea produselor */}
         <section className="panel">
-          <h2>Adaugă produs</h2>
+          <h2>Adauga produs</h2>
 
-          <form
-            className="item-form"
-            onSubmit={adaugaProdus}
-          >
-            <label>
-              Nume produs
-              <input
-                type="text"
-                placeholder="Ex: Invitație de nuntă"
-                value={nume}
-                onChange={(e) => setNume(e.target.value)}
-              />
-            </label>
-
-            <label>
-              Tip produs
-              <select
-                value={tip}
-                onChange={(e) => setTip(e.target.value)}
-              >
-                <option>Invitații</option>
-                <option>Lumânări</option>
-                <option>Accesorii</option>
-              </select>
-            </label>
-
-            <button type="submit">
-              Adaugă
-            </button>
-          </form>
+          {/* Formularul nou cu validare si salvare pe server */}
+          <ProdusForm onAdd={adaugaProdus} />
         </section>
 
-        {/* Lista produselor */}
+        {/* Lista produselor - pastrata din etapele anterioare */}
         <section className="panel">
           <h2>Produsele noastre</h2>
 
-          {/* Bara de cautare */}
+          {/* Etapa 4 - Bara de cautare */}
           <input
             className="search-input"
             type="text"
-            placeholder="Caută un produs..."
+            placeholder="Cauta un produs..."
             value={cautare}
             onChange={(e) => setCautare(e.target.value)}
           />
 
-          {/* Mesaj de incarcare */}
+          {/* Etapa 6 - Mesaj de incarcare */}
           {loading && (
-            <p className="info">
-              Se încarcă produsele...
+            <p className="info" data-testid="loading">
+              Se incarca produsele...
             </p>
           )}
 
-          {/* Mesaj de eroare */}
+          {/* Etapa 6 - Mesaj de eroare */}
           {error && (
-            <p className="error">
-              Nu am putut încărca produsele: {error}.
-              Verifică dacă ai pornit npm run api.
+            <p className="error" data-testid="error">
+              Eroare: {error}.
+              Verifica daca ai pornit npm run api.
             </p>
           )}
 
           {/* Afisarea produselor dupa incarcare */}
-          {!loading && !error && (
+          {!loading && (
             <>
-              {/* Contor produse */}
+              {/* Etapa 4 - Contor produse */}
               <p className="app-count">
                 {produse.length}{' '}
                 {produse.length === 1 ? 'produs' : 'produse'},
@@ -210,6 +220,7 @@ function App() {
                   : 'disponibile'}
               </p>
 
+              {/* Lista produselor cu functiile CRUD */}
               <ProdusList
                 produse={produseFiltrate}
                 schimbaDisponibilitate={schimbaDisponibilitate}
@@ -221,6 +232,7 @@ function App() {
 
       </main>
 
+      {/* Subsolul aplicatiei */}
       <footer className="app-footer">
         Proiect Tehnologii Web - Event Boutique
       </footer>

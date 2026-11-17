@@ -1,0 +1,9 @@
+
+{
+  "resource": "produse",
+  "title": "nume",
+  "done": "indisponibil",
+  "sample": {
+    "tip": "Accesorii"
+  }
+}

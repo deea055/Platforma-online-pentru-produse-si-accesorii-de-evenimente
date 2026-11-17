@@ -1,4 +1,3 @@
-
 {
   "produse": [
     {
@@ -23,13 +22,19 @@
       "id": 4,
       "nume": "Cocardă pentru nuntă",
       "tip": "Accesorii",
-      "indisponibil": true
+      "indisponibil": false
     },
     {
       "id": 5,
       "nume": "Lumânare personalizată",
       "tip": "Lumânări",
       "indisponibil": false
+    },
+    {
+      "nume": "Produs test intarziere",
+      "tip": "Accesorii",
+      "indisponibil": false,
+      "id": 7
     }
   ]
 }

@@ -292,3 +292,75 @@ După repornirea normală a serverului, produsele au fost afișate din nou.
 - [x] Etapa 4 – Componente React
 - [x] Etapa 5 – State local și evenimente
 - [x] Etapa 6 – Date de la un API
+
+
+## Etapa 7 – Formular si validare
+
+In aceasta etapa am imbunatatit formularul pentru adaugarea produselor si am conectat operatiile de adaugare, modificare si stergere la API-ul REST.
+
+Am pastrat designul Event Boutique si functionalitatile realizate in etapele anterioare.
+
+### Functionalitati implementate
+
+- Am creat componenta `ProdusForm.jsx` pentru adaugarea produselor.
+- Am folosit `useState` pentru gestionarea campurilor formularului.
+- Am adaugat validarea numelui produsului.
+- Formularul afiseaza un mesaj de eroare daca numele este gol.
+- Am folosit `preventDefault()` pentru a evita reincarcarea paginii.
+- Am conectat adaugarea produselor la server prin POST.
+- Am conectat modificarea disponibilitatii la server prin PATCH.
+- Am conectat stergerea produselor la server prin DELETE.
+- Modificarile raman salvate dupa reincarcarea paginii.
+- Butonul de adaugare este dezactivat in timpul salvarii.
+- Formularul se goleste doar dupa salvarea reusita.
+- Daca serverul nu raspunde, formularul pastreaza datele introduse.
+- Am adaugat atribute `data-testid` pentru testarea automata.
+- Am creat fisierul `tw.json` pentru configurarea testelor.
+
+### Fisiere utilizate
+
+- `frontend/src/components/ProdusForm.jsx` - formularul si validarea.
+- `frontend/src/components/ProdusCard.jsx` - afisarea produsului si actiunile acestuia.
+- `frontend/src/components/ProdusList.jsx` - afisarea listei de produse.
+- `frontend/src/App.jsx` - gestionarea produselor si conectarea componentelor.
+- `frontend/src/api.js` - functiile GET, POST, PATCH si DELETE.
+- `frontend/src/App.css` - stilurile formularului si ale aplicatiei.
+- `frontend/db.json` - baza de date folosita de json-server.
+- `tw.json` - configurarea pentru testarea automata.
+
+### Testare
+
+Am verificat functionalitatile direct in browser.
+
+1. Am adaugat un produs si am verificat ca ramane in lista dupa F5.
+2. Am modificat disponibilitatea unui produs si am verificat ca modificarea se pastreaza dupa F5.
+3. Am sters un produs si am verificat ca nu mai apare dupa F5.
+4. Am incercat sa adaug un produs fara nume si a aparut mesajul de validare.
+5. Am oprit serverul API si am verificat ca formularul afiseaza eroarea `Failed to fetch` si pastreaza textul introdus.
+6. Am pornit serverul cu intarziere de 3 secunde si am verificat afisarea mesajului `Se salveaza...` pe buton.
+
+Pentru testarea intarzierii am folosit:
+
+```bash
+npx json-server --watch db.json --port 3001 --delay 3000
+```
+
+Dupa testare am revenit la pornirea normala a serverului cu `npm run api`.
+
+### Etapa 7 – Tabel de verificare
+
+| ID | Cerinta | Unde se verifica | Cum se verifica |
+|---|---|---|---|
+| S7-R1 | Formular controlat | `ProdusForm.jsx` | Se verifica `value` si `onChange` |
+| S7-R2 | Validarea numelui | `ProdusForm.jsx` | Se incearca adaugarea fara nume |
+| S7-R3 | Adaugarea pe server | `api.js`, `App.jsx` | Se adauga un produs si se apasa F5 |
+| S7-R4 | Modificarea si stergerea pe server | `api.js`, `App.jsx` | Se modifica sau sterge un produs si se apasa F5 |
+| S7-R5 | Gestionarea salvarii si a erorilor | `ProdusForm.jsx` | Se testeaza serverul oprit si serverul cu intarziere |
+| S7-R6 | Configurarea testelor automate | `tw.json`, componentele React | Se verifica atributele `data-testid` |
+| S7-R7 | README si jurnal AI | `README.md`, `ai-log/etapa-07.md` | Se verifica documentatia |
+| S7-R8 | Etapa 7 publicata pe GitHub | Istoricul commiturilor | Se verifica commiturile Etapei 7 |
+
+### Stadiul proiectului
+
+- [x] Etapa 7 – Formular si validare (implementare si teste manuale)
+- [ ] Etapa 7 – Verificare finala si publicare pe GitHub
