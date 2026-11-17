@@ -1,4 +1,4 @@
-
+﻿
 # Platforma-online-pentru-produse-si-accesorii-de-evenimente
 
 # Event Boutique
@@ -362,5 +362,6 @@ Dupa testare am revenit la pornirea normala a serverului cu `npm run api`.
 
 ### Stadiul proiectului
 
-- [x] Etapa 7 – Formular si validare (implementare si teste manuale)
-- [ ] Etapa 7 – Verificare finala si publicare pe GitHub
+- [x] Etapa 7 – Formular si validare
+- [x] Etapa 7 – Verificare finala si publicare pe GitHub
+
