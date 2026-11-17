@@ -553,4 +553,4 @@ S8-R9	Etapa 8 publicata pe GitHub	Istoricul commiturilor	Se verifica dupa realiz
 
 Stadiul proiectului
 - [x] Etapa 8 – Implementare, verificare manuala si build
-- [ ] Etapa 8 – Jurnal AI si public
+- [x] Etapa 8 – Jurnal AI si public
