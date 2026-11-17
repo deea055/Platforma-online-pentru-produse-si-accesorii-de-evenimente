@@ -1,0 +1,12 @@
+
+/* Etapa 8 - Stilurile locale pentru lista produselor */
+
+/* Lista produselor fara puncte */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

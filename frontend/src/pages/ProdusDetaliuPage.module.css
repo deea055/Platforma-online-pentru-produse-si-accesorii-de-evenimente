@@ -1,0 +1,88 @@
+
+/* Etapa 8 - Stilurile locale pentru pagina de detalii */
+
+/* Pagina de detalii fara chenar */
+.panel {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 900px;
+  margin: 25px auto;
+  padding: 35px 25px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Numele produsului */
+.panel h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 46px;
+  font-style: italic;
+  font-weight: 600;
+  color: #713b4c;
+  margin-bottom: 25px;
+}
+
+/* Informatiile produsului */
+.panel p {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 27px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #754b5b;
+  margin: 10px 0;
+}
+
+/* Etichetele informatiilor */
+.panel strong {
+  font-weight: 700;
+  color: #713b4c;
+}
+
+/* Butonul roz pentru intoarcerea la produse */
+.backLink {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 13px 32px;
+  background: #f4ccd9;
+  color: #713b4c;
+  border: 1px solid #d992a9;
+  border-radius: 30px;
+  text-decoration: none;
+
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 600;
+
+  box-shadow: 0 4px 12px rgba(145, 70, 95, 0.15);
+  transition: all 0.25s ease;
+}
+
+/* Efect la trecerea cu mouse-ul */
+.backLink:hover {
+  background: #eeb7c9;
+  transform: translateY(-2px);
+}
+
+/* Culori pentru modul intunecat */
+:global(.dark-mode) .panel h2,
+:global(.dark-mode) .panel p,
+:global(.dark-mode) .panel strong {
+  color: #f8e9ee;
+}
+
+/* Adaptare pentru telefon */
+@media (max-width: 600px) {
+  .panel h2 {
+    font-size: 34px;
+  }
+
+  .panel p {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,79 @@
+
+/* Etapa 8 - Stilurile locale ale formularului */
+
+/* Organizarea formularului si a etichetelor */
+.form,
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.form {
+  gap: 18px;
+}
+
+/* Campurile pentru nume si tipul produsului */
+.form input,
+.form select {
+  padding: 12px;
+  border: 1px solid #e1c6c9;
+  border-radius: 8px;
+  background: white;
+  color: #49363c;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Fontul caligrafic al etichetelor */
+.form label {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Butonul roz pentru adaugarea produsului */
+.form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #c27c89;
+  color: white;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Efectul la trecerea cu mouse-ul */
+.form button:hover:not(:disabled) {
+  background: #a85d70;
+}
+
+/* Buton dezactivat in timpul salvarii */
+.form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Campurile formularului in modul intunecat */
+:global(.dark-mode) .form input,
+:global(.dark-mode) .form select {
+  background: #493b49;
+  color: #ffffff;
+  border-color: #886c7b;
+}
+
+/* Evidentiaza campul daca exista o eroare */
+.form input[aria-invalid="true"] {
+  border-color: #c43b60;
+}
+
+/* Pastreaza spatierea mesajului de eroare */
+.form :global(.error) {
+  margin-top: 0;
+}

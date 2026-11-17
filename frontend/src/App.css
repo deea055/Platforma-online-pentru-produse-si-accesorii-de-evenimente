@@ -1,6 +1,5 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 /* Event Boutique - Stilurile principale */
 
 /* Banner cu fundite si flori */
@@ -426,4 +425,391 @@
   border-radius: 8px;
   padding: 10px 12px;
   margin-top: 15px;
+}
+
+/* Etapa 7 - Stiluri pentru noul formular */
+
+/* Pastreaza aspectul formularului din etapele anterioare */
+.produs-form,
+.produs-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.produs-form {
+  gap: 18px;
+}
+
+/* Pastreaza aspectul campurilor si al listei de tipuri */
+.produs-form input,
+.produs-form select {
+  padding: 12px;
+  border: 1px solid #e1c6c9;
+  border-radius: 8px;
+  background: white;
+  color: #49363c;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Pastreaza fontul caligrafic pentru etichete */
+.produs-form label {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Pastreaza butonul roz pentru adaugarea produselor */
+.produs-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #c27c89;
+  color: white;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Schimba culoarea butonului cand trecem cu mouse-ul */
+.produs-form button:hover:not(:disabled) {
+  background: #a85d70;
+}
+
+/* Etapa 7 - Dezactiveaza vizual butonul in timpul salvarii */
+.produs-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Etapa 7 - Pastreaza aspectul formularului in modul intunecat */
+.dark-mode .produs-form input,
+.dark-mode .produs-form select {
+  background: #493b49;
+  color: #ffffff;
+  border-color: #886c7b;
+}
+
+/* Etapa 7 - Evidentiaza campul daca exista o eroare */
+.produs-form input[aria-invalid="true"] {
+  border-color: #c43b60;
+}
+
+/* Etapa 7 - Pastreaza mesajul de eroare vizibil */
+.produs-form .error {
+  margin-top: 0;
+}
+
+/* Etapa 8 - Meniul de navigare Event Boutique */
+.app-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+/* Butoanele albe cu margini rotunjite */
+.app-nav .nav-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 115px;
+  padding: 11px 24px;
+  background: #ffffff;
+  color: #713b4c;
+  border: 1.5px solid #e7a5b7;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  box-shadow: 0 3px 10px rgba(145, 70, 95, 0.12);
+  transition: all 0.25s ease;
+}
+
+/* Efect cand trecem cu mouse-ul peste buton */
+.app-nav .nav-link:hover {
+  background: #f8dce5;
+  border-color: #d58da5;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(145, 70, 95, 0.18);
+}
+
+/* Butonul paginii active - roz pudra */
+.app-nav .nav-link.nav-active {
+  background: #f4ccd9;
+  border-color: #d992a9;
+  color: #713b4c;
+}
+
+/* Evidentiere pentru navigarea din tastatura */
+.app-nav .nav-link:focus-visible {
+  outline: 2px solid #a95c78;
+  outline-offset: 3px;
+}
+
+/* Etapa 8 - Fonturi elegante pentru pagina Despre */
+
+
+/* Titlu elegant, inspirat de invitatiile de nunta */
+.despre-panel h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 43px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #713b4c;
+}
+
+/* Text delicat, usor de citit */
+.despre-panel p {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.9;
+  color: #754b5b;
+}
+
+/* Mesajul de inceput si cel de final */
+.despre-panel .despre-intro,
+.despre-panel .despre-final {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 25px !important;
+  font-style: italic;
+  font-weight: 600;
+  color: #b16b86;
+}
+
+/* Butonul de intoarcere la produse */
+.despre-button {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+/* Etapa 8 - Caseta Despre mai lata si centrata */
+.despre-panel {
+  width: 95%;
+  max-width: 1050px;
+  margin: 25px auto 50px;
+  padding: 40px 60px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Textul foloseste toata latimea disponibila */
+.despre-panel p {
+  width: 100%;
+  max-width: none;
+  line-height: 1.8;
+}
+
+/* Adaptare pentru telefoane */
+@media (max-width: 600px) {
+  .despre-panel {
+    width: 95%;
+    padding: 25px 20px;
+  }
+}
+
+/* Etapa 8 - Pagina Despre ocupa ambele coloane */
+.container:has(.despre-panel) {
+  grid-template-columns: 1fr;
+}
+
+/* Caseta Despre se intinde pe latimea paginii */
+.container .despre-panel {
+  width: 100%;
+  max-width: 1050px;
+  min-width: 0;
+  margin: 20px auto 40px;
+  padding: 45px 60px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Textul este afisat normal, pe latime */
+.container .despre-panel p {
+  width: 100%;
+  max-width: none;
+  line-height: 1.9;
+}
+
+/* Adaptare pentru ecrane mici */
+@media (max-width: 600px) {
+  .container .despre-panel {
+    padding: 25px 20px;
+  }
+}
+
+/* Etapa 8 - Marirea textului din pagina Despre */
+.container .despre-panel p {
+  font-size: 24px;
+}
+
+.container .despre-panel .despre-intro,
+.container .despre-panel .despre-final {
+  font-size: 29px !important;
+}
+
+
+/* Etapa 8 - Buton elegant pentru pagina Despre */
+.despre-panel .despre-button {
+  display: inline-block;
+  padding: 14px 32px;
+  margin-top: 20px;
+  background-color: #f4ccd9;
+  color: #713b4c;
+  border: 1px solid #d992a9;
+  border-radius: 30px;
+  text-decoration: none;
+
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 600;
+
+  box-shadow: 0 4px 12px rgba(145, 70, 95, 0.15);
+  transition: all 0.25s ease;
+}
+
+/* Efect la trecerea cu mouse-ul */
+.despre-panel .despre-button:hover {
+  background-color: #eeb7c9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(145, 70, 95, 0.2);
+}
+
+
+/* Etapa 8 - Pagina de detalii fara chenar */
+.container .detalii-panel {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 900px;
+  margin: 25px auto;
+  padding: 35px 25px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: center;
+}
+
+/* Numele produsului */
+.detalii-panel h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 46px;
+  font-style: italic;
+  font-weight: 600;
+  color: #713b4c;
+  margin-bottom: 25px;
+}
+
+/* Informatiile produsului */
+.detalii-panel p {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 27px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #754b5b;
+  margin: 10px 0;
+}
+
+/* Etichetele informatiilor */
+.detalii-panel strong {
+  font-weight: 700;
+  color: #713b4c;
+}
+
+/* Buton roz pudra pentru intoarcere */
+.detalii-panel a[href="/"] {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 13px 32px;
+  background: #f4ccd9;
+  color: #713b4c;
+  border: 1px solid #d992a9;
+  border-radius: 30px;
+  text-decoration: none;
+
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 600;
+
+  box-shadow: 0 4px 12px rgba(145, 70, 95, 0.15);
+  transition: all 0.25s ease;
+}
+
+/* Efect la trecerea cu mouse-ul */
+.detalii-panel a[href="/"]:hover {
+  background: #eeb7c9;
+  transform: translateY(-2px);
+}
+
+/* Culori potrivite pentru modul intunecat */
+.dark-mode .detalii-panel h2,
+.dark-mode .detalii-panel p,
+.dark-mode .detalii-panel strong {
+  color: #f8e9ee;
+}
+
+/* Adaptare pentru telefon */
+@media (max-width: 600px) {
+  .detalii-panel h2 {
+    font-size: 34px;
+  }
+
+  .detalii-panel p {
+    font-size: 22px;
+  }
+}
+
+/* Etapa 8 - Butoane de navigare mai mari si elegante */
+.app-nav {
+  gap: 22px;
+  margin-top: 20px;
+}
+
+/* Stil elegant pentru Produse si Despre */
+.app-nav .nav-link {
+  min-width: 150px;
+  padding: 12px 30px;
+  box-sizing: border-box;
+
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 25px;
+  font-style: italic;
+  font-weight: 600;
+
+  border-radius: 35px;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+/* Butonul activ ramane roz pudra */
+.app-nav .nav-link.nav-active {
+  background-color: #f4ccd9;
+  border-color: #d992a9;
+}
+
+/* Adaptare pentru telefon */
+@media (max-width: 600px) {
+  .app-nav {
+    gap: 12px;
+  }
+
+  .app-nav .nav-link {
+    min-width: 120px;
+    padding: 10px 20px;
+    font-size: 22px;
+  }
 }

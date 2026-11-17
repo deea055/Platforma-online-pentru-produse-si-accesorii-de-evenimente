@@ -1,0 +1,83 @@
+
+/* Etapa 8 - Stilurile locale pentru pagina Produse */
+
+/* Panourile formularului si listei de produse */
+.panel {
+  background: #fffaf9;
+  padding: 24px;
+  border: 1px solid #ecd9d9;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px #b78c8c18;
+}
+
+/* Titlurile panourilor */
+.panel h2 {
+  margin-top: 0;
+  font-family: Georgia, serif;
+  color: #683b49;
+}
+
+/* Bara de cautare */
+.searchInput {
+  width: 100%;
+  padding: 14px 16px;
+  margin: 12px 0 18px;
+  border: 1px solid #e5c5c9;
+  border-radius: 10px;
+  background: #ffffff;
+  font-size: 16px;
+  color: #55333d;
+  box-sizing: border-box;
+}
+
+/* Evidentierea barei de cautare */
+.searchInput:focus {
+  outline: 2px solid #c18090;
+  outline-offset: 2px;
+}
+
+/* Numarul produselor disponibile */
+.count {
+  color: #8a747a;
+  font-size: 14px;
+}
+
+/* Mesajul de incarcare */
+.info {
+  color: #956775;
+  margin-top: 15px;
+}
+
+/* Mesajul de eroare */
+.error {
+  color: #9b294b;
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 15px;
+}
+
+/* Panourile in modul intunecat */
+:global(.dark-mode) .panel {
+  background: #342a35;
+  border-color: #654858;
+  box-shadow: 0 4px 15px #120d1280;
+}
+
+/* Titlurile in modul intunecat */
+:global(.dark-mode) .panel h2 {
+  color: #f8e9ee;
+}
+
+/* Bara de cautare in modul intunecat */
+:global(.dark-mode) .searchInput {
+  background: #493b49;
+  color: #ffffff;
+  border-color: #886c7b;
+}
+
+/* Contorul in modul intunecat */
+:global(.dark-mode) .count {
+  color: #e1c5d0;
+}

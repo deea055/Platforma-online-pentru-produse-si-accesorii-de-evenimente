@@ -1,44 +1,51 @@
 
+import { Link } from 'react-router-dom'
+import styles from './ProdusCard.module.css'
+
+// Etapa 8 - Cardul unui produs cu stiluri CSS Modules
 function ProdusCard({ produs, schimbaDisponibilitate, stergeProdus }) {
   return (
-    // Afiseaza un produs din lista
-    // Etapa 7 - data-testid="item" identifica produsul la testare
     <li
-      className={`item-card ${produs.indisponibil ? 'done' : ''}`}
+      className={`${styles.card} ${produs.indisponibil ? styles.done : ''}`}
       data-testid="item"
       data-id={produs.id}
     >
       {/* Zona cu disponibilitatea si informatiile produsului */}
-      <label className="produs-main">
+      <div className={styles.main}>
 
         {/* Checkbox pentru schimbarea disponibilitatii */}
-        {/* Modificarea este salvata pe server prin App.jsx */}
         <input
           type="checkbox"
           checked={produs.indisponibil}
           onChange={() => schimbaDisponibilitate(produs.id)}
+          aria-label={`Schimba disponibilitatea pentru ${produs.nume}`}
           data-testid="item-toggle"
         />
 
         <div>
-          {/* Afiseaza numele produsului */}
-          <h3 data-testid="item-title">
-            {produs.nume}
+          {/* Numele produsului deschide pagina de detalii */}
+          <h3>
+            <Link
+              to={`/produse/${produs.id}`}
+              className={styles.link}
+              data-testid="item-link"
+            >
+              {produs.nume}
+            </Link>
           </h3>
 
-          {/* Afiseaza categoria produsului */}
-          <span className="badge badge-accesorii">
+          {/* Categoria produsului */}
+          <span className={styles.badge}>
             {produs.tip}
           </span>
         </div>
-      </label>
+      </div>
 
-      {/* Zona cu butonul de stergere */}
+      {/* Butonul pentru stergerea produsului */}
       <div className="item-actions">
-        {/* Sterge produsul de pe server */}
         <button
           type="button"
-          className="delete-button"
+          className={styles.deleteButton}
           onClick={() => stergeProdus(produs.id)}
           aria-label={`Sterge ${produs.nume}`}
           data-testid="item-delete"

@@ -1,18 +1,16 @@
 
 import { useState } from "react";
+import styles from "./ProdusForm.module.css";
 
-// Tipurile de produse care pot fi selectate
-const TIPURI = ["Invitatii", "Lumanari", "Accesorii"];
-
-// Numarul maxim de caractere pentru numele produsului
-const NUME_MAX = 100;
+// Etapa 8 - Importa constantele comune ale aplicatiei
+import { TIPURI, NUME_MAX, TIP_INITIAL } from "../constants.js";
 
 export default function ProdusForm({ onAdd }) {
   // Retine numele introdus in formular
   const [nume, setNume] = useState("");
 
   // Retine tipul de produs selectat
-  const [tip, setTip] = useState("Invitatii");
+  const [tip, setTip] = useState(TIP_INITIAL);
 
   // Retine mesajul de eroare
   const [eroare, setEroare] = useState("");
@@ -65,7 +63,7 @@ export default function ProdusForm({ onAdd }) {
     setTrimite(true);
 
     try {
-      // Trimite produsul catre App.jsx pentru salvare
+      // Trimite produsul catre server pentru salvare
       await onAdd({
         nume: nume.trim(),
         tip,
@@ -74,7 +72,7 @@ export default function ProdusForm({ onAdd }) {
 
       // Goleste formularul doar daca salvarea a reusit
       setNume("");
-      setTip("Invitatii");
+      setTip(TIP_INITIAL);
     } catch (err) {
       // Afiseaza eroarea daca salvarea nu a reusit
       setEroare(err.message);
@@ -87,7 +85,7 @@ export default function ProdusForm({ onAdd }) {
   // Afiseaza formularul pentru adaugarea produselor
   return (
     <form
-      className="item-form"
+      className={styles.form}
       onSubmit={handleSubmit}
       noValidate
       data-testid="form"

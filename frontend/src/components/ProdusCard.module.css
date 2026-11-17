@@ -1,0 +1,122 @@
+
+/* Etapa 8 - Stilurile locale pentru cardul unui produs */
+
+/* Cardul principal al produsului */
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #ecd9d9;
+  border-radius: 10px;
+  padding: 15px;
+  background: white;
+  min-height: 72px;
+}
+
+/* Zona cu numele, categoria si disponibilitatea */
+.main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* Checkbox pentru disponibilitate */
+.main input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #bf7f90;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Numele produsului */
+.card h3 {
+  margin: 0 0 6px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 25px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Link catre pagina de detalii */
+.link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #b76b86;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.link:focus-visible {
+  outline: 2px solid #b76b86;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+/* Produs indisponibil */
+.done h3 {
+  text-decoration: line-through;
+  color: #a9989d;
+}
+
+/* Eticheta pentru categoria produsului */
+.badge {
+  display: inline-block;
+  background: #c88e9b;
+  color: white;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Butonul pentru stergerea produsului */
+.deleteButton {
+  background: #fff;
+  color: #b34f65;
+  border: 1px solid #e2aab5;
+  border-radius: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.deleteButton:hover {
+  background: #f9e5e9;
+}
+
+/* Stiluri pentru modul intunecat */
+:global(.dark-mode) .card {
+  background: #443544;
+  border-color: #705466;
+}
+
+:global(.dark-mode) .card h3 {
+  color: #f8e9ee;
+}
+
+:global(.dark-mode) .done h3 {
+  color: #c5a9b6;
+  text-decoration: line-through;
+}
+
+:global(.dark-mode) .deleteButton {
+  background: #493544;
+  color: #ffe3eb;
+  border-color: #bb8296;
+}
+
+:global(.dark-mode) .deleteButton:hover {
+  background: #694658;
+}

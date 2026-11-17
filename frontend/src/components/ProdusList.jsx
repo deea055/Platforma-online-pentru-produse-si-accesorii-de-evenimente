@@ -1,7 +1,8 @@
 
 import ProdusCard from './ProdusCard.jsx'
+import styles from './ProdusList.module.css'
 
-// Componenta care afiseaza lista produselor
+// Etapa 8 - Lista produselor cu stiluri CSS Modules
 export default function ProdusList({
   produse,
   schimbaDisponibilitate,
@@ -9,7 +10,7 @@ export default function ProdusList({
 }) {
   // Verifica daca lista de produse este goala
   if (produse.length === 0) {
-    // Etapa 7 - Atribut folosit pentru testarea listei goale
+    // Pastreaza atributul necesar pentru testare
     return (
       <p data-testid="empty">
         Nu exista niciun produs.
@@ -19,8 +20,8 @@ export default function ProdusList({
 
   // Afiseaza toate produsele existente
   return (
-    <ul className="item-list">
-      {/* Parcurge lista si creeaza un card pentru fiecare produs */}
+    <ul className={styles.list}>
+      {/* Creeaza un card pentru fiecare produs */}
       {produse.map((produs) => (
         <ProdusCard
           // ID-ul ajuta React sa identifice fiecare produs

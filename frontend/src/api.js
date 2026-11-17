@@ -19,12 +19,17 @@ async function request(path, options = {}) {
   return res.status === 204 ? null : res.json();
 }
 
-// Citirea produselor
+// Etapa 6 - Citirea tuturor produselor
 export function fetchProduse() {
   return request("/produse");
 }
 
-// Adaugarea unui produs
+// Etapa 8 - Citirea unui singur produs dupa ID
+export function fetchProdus(id) {
+  return request(`/produse/${id}`);
+}
+
+// Etapa 7 - Adaugarea unui produs
 export function createProdus(produs) {
   return request("/produse", {
     method: "POST",
@@ -32,7 +37,7 @@ export function createProdus(produs) {
   });
 }
 
-// Modificarea unui produs
+// Etapa 7 - Modificarea unui produs
 export function updateProdus(id, changes) {
   return request(`/produse/${id}`, {
     method: "PATCH",
@@ -40,10 +45,9 @@ export function updateProdus(id, changes) {
   });
 }
 
-// Stergerea unui produs
+// Etapa 7 - Stergerea unui produs
 export function deleteProdus(id) {
   return request(`/produse/${id}`, {
     method: "DELETE",
   });
 }
-

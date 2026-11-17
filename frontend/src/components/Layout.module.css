@@ -1,0 +1,212 @@
+
+/* Etapa 8 - Stilurile locale pentru Layout */
+
+/* Bannerul original cu fundite si flori */
+.header {
+  background-color: #f5cbd0;
+  background-image: url('/banner-event-boutique.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #4b2631;
+  text-align: center;
+  padding: 45px 20px;
+  min-height: 250px;
+  box-sizing: border-box;
+}
+
+/* Continutul bannerului */
+.headerContent {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+/* Simbolurile decorative */
+.headerSymbol {
+  font-size: 28px;
+  color: #914e61;
+}
+
+/* Titlul aplicatiei */
+.header h1 {
+  font-family: Georgia, serif;
+  font-size: 46px;
+  margin: 5px 0;
+}
+
+/* Subtitlul aplicatiei */
+.header p {
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+/* Butonul pentru schimbarea temei */
+.themeToggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  padding: 10px 16px;
+  border: 1px solid #b97989;
+  border-radius: 20px;
+  background: #fff7f8;
+  color: #653c48;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 21px;
+  font-style: italic;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.themeToggle:hover {
+  background: #f4e2e5;
+}
+
+/* Meniul de navigare */
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Butoanele Produse si Despre */
+.navLink {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  padding: 12px 30px;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: #713b4c;
+  border: 1.5px solid #e7a5b7;
+  border-radius: 35px;
+  text-decoration: none;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 25px;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(145, 70, 95, 0.12);
+  transition: all 0.25s ease;
+}
+
+/* Efect la trecerea cu mouse-ul */
+.navLink:hover {
+  background: #f8dce5;
+  border-color: #d58da5;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(145, 70, 95, 0.18);
+}
+
+/* Butonul paginii active */
+.navActive {
+  background: #f4ccd9;
+  border-color: #d992a9;
+  color: #713b4c;
+}
+
+/* Navigare cu tastatura */
+.navLink:focus-visible {
+  outline: 2px solid #a95c78;
+  outline-offset: 3px;
+}
+
+/* Zona in care se afiseaza paginile */
+.container {
+  max-width: 1100px;
+  margin: 35px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 25px;
+  align-items: start;
+}
+
+/* Pagina Despre ocupa toata latimea */
+.container:has(:global(.despre-panel)) {
+  grid-template-columns: 1fr;
+}
+
+/* Footerul original */
+.footer {
+  text-align: center;
+  color: #987f87;
+  padding: 30px;
+}
+
+/* Modul intunecat */
+:global(.dark-mode) .header {
+  background-color: #49313f;
+  background-image:
+    linear-gradient(#301b2a66, #301b2a66),
+    url('/banner-event-boutique.png');
+  background-position: center;
+  background-size: cover;
+}
+
+:global(.dark-mode) .header h1,
+:global(.dark-mode) .header p,
+:global(.dark-mode) .headerSymbol {
+  color: #fff0f4;
+}
+
+:global(.dark-mode) .themeToggle {
+  background: #65475a;
+  color: #ffffff;
+  border-color: #b98c9e;
+}
+
+:global(.dark-mode) .themeToggle:hover {
+  background: #805a70;
+}
+
+:global(.dark-mode) .footer {
+  color: #e1c5d0;
+}
+
+/* Adaptare pentru telefon */
+@media (max-width: 700px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    min-height: 220px;
+    padding: 45px 15px 25px;
+    background-position: center;
+  }
+
+  .header h1 {
+    font-size: 34px;
+  }
+
+  .header p {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .themeToggle {
+    position: static;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    gap: 12px;
+  }
+
+  .navLink {
+    min-width: 120px;
+    padding: 10px 20px;
+    font-size: 22px;
+  }
+}
