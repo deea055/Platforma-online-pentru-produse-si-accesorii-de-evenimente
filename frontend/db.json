@@ -1,0 +1,35 @@
+
+{
+  "produse": [
+    {
+      "id": 1,
+      "nume": "Invitație de nuntă",
+      "tip": "Invitații",
+      "indisponibil": false
+    },
+    {
+      "id": 2,
+      "nume": "Topper personalizat",
+      "tip": "Accesorii",
+      "indisponibil": false
+    },
+    {
+      "id": 3,
+      "nume": "Cutie cadou personalizată",
+      "tip": "Accesorii",
+      "indisponibil": false
+    },
+    {
+      "id": 4,
+      "nume": "Cocardă pentru nuntă",
+      "tip": "Accesorii",
+      "indisponibil": true
+    },
+    {
+      "id": 5,
+      "nume": "Lumânare personalizată",
+      "tip": "Lumânări",
+      "indisponibil": false
+    }
+  ]
+}

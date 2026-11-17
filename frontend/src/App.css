@@ -409,3 +409,21 @@
   font-style: italic;
   font-weight: 600;
 }
+
+
+
+/* Etapa 6 - Mesaje de incarcare si eroare */
+
+.info {
+  color: #956775;
+  margin-top: 15px;
+}
+
+.error {
+  color: #9b294b;
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 15px;
+}

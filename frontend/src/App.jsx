@@ -2,45 +2,49 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import ProdusList from './components/ProdusList'
-
-const produseInitiale = [
-  {
-    id: 1,
-    nume: 'Wedding Invitation',
-    tip: 'Invitații',
-    indisponibil: false,
-  },
-  {
-    id: 2,
-    nume: 'Personalized Envelope',
-    tip: 'Accesorii',
-    indisponibil: true,
-  },
-  {
-    id: 3,
-    nume: 'Wedding Ring Mirror',
-    tip: 'Accesorii',
-    indisponibil: false,
-  },
-]
+import { fetchProduse } from './api.js'
 
 function App() {
-  // Citirea produselor salvate in localStorage
-  const [produse, setProduse] = useState(() => {
-    const salvate = localStorage.getItem('produse')
-    return salvate ? JSON.parse(salvate) : produseInitiale
-  })
+  // Etapa 6 - Produsele sunt incarcate de pe server
+  const [produse, setProduse] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
-  // Salvarea automata a produselor
+  // Incarcarea produselor din API
   useEffect(() => {
-    localStorage.setItem('produse', JSON.stringify(produse))
-  }, [produse])
+    let ignore = false
 
+    async function incarcaProduse() {
+      try {
+        const date = await fetchProduse()
+
+        if (!ignore) {
+          setProduse(date)
+        }
+      } catch (err) {
+        if (!ignore) {
+          setError(err.message)
+        }
+      } finally {
+        if (!ignore) {
+          setLoading(false)
+        }
+      }
+    }
+
+    incarcaProduse()
+
+    return () => {
+      ignore = true
+    }
+  }, [])
+
+  // State pentru formular si cautare
   const [nume, setNume] = useState('')
   const [tip, setTip] = useState('Invitații')
   const [cautare, setCautare] = useState('')
 
-  // Etapa 5 - Starea pentru modul luminos/intunecat
+  // Etapa 5 - Modul luminos/intunecat
   const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
@@ -50,7 +54,7 @@ function App() {
     )
   }, [darkMode])
 
-  // Adaugarea unui produs
+  // Adaugarea unui produs (local, pana la Etapa 7)
   function adaugaProdus(e) {
     e.preventDefault()
 
@@ -67,7 +71,7 @@ function App() {
     setNume('')
   }
 
-  // Schimbarea disponibilitatii
+  // Schimbarea disponibilitatii (local)
   function schimbaDisponibilitate(id) {
     setProduse((listaVeche) =>
       listaVeche.map((produs) =>
@@ -81,7 +85,7 @@ function App() {
     )
   }
 
-  // Stergerea unui produs
+  // Stergerea unui produs (local)
   function stergeProdus(id) {
     setProduse((listaVeche) =>
       listaVeche.filter((produs) => produs.id !== id)
@@ -178,21 +182,41 @@ function App() {
             onChange={(e) => setCautare(e.target.value)}
           />
 
-          {/* Contor produse */}
-          <p className="app-count">
-            {produse.length}{' '}
-            {produse.length === 1 ? 'produs' : 'produse'},
-            dintre care {disponibile}{' '}
-            {disponibile === 1
-              ? 'disponibil'
-              : 'disponibile'}
-          </p>
+          {/* Mesaj de incarcare */}
+          {loading && (
+            <p className="info">
+              Se încarcă produsele...
+            </p>
+          )}
 
-          <ProdusList
-            produse={produseFiltrate}
-            schimbaDisponibilitate={schimbaDisponibilitate}
-            stergeProdus={stergeProdus}
-          />
+          {/* Mesaj de eroare */}
+          {error && (
+            <p className="error">
+              Nu am putut încărca produsele: {error}.
+              Verifică dacă ai pornit npm run api.
+            </p>
+          )}
+
+          {/* Afisarea produselor dupa incarcare */}
+          {!loading && !error && (
+            <>
+              {/* Contor produse */}
+              <p className="app-count">
+                {produse.length}{' '}
+                {produse.length === 1 ? 'produs' : 'produse'},
+                dintre care {disponibile}{' '}
+                {disponibile === 1
+                  ? 'disponibil'
+                  : 'disponibile'}
+              </p>
+
+              <ProdusList
+                produse={produseFiltrate}
+                schimbaDisponibilitate={schimbaDisponibilitate}
+                stergeProdus={stergeProdus}
+              />
+            </>
+          )}
         </section>
 
       </main>
