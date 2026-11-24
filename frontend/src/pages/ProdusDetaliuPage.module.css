@@ -1,11 +1,11 @@
 
 /* Etapa 8 - Stilurile locale pentru pagina de detalii */
 
-/* Pagina de detalii fara chenar */
+/* Containerul general al paginii */
 .panel {
   grid-column: 1 / -1;
-  width: 100%;
-  max-width: 900px;
+  width: 95%;
+  max-width: 1600px;
   margin: 25px auto;
   padding: 35px 25px;
   background: transparent;
@@ -16,17 +16,17 @@
   box-sizing: border-box;
 }
 
-/* Numele produsului */
+/* Titlul produsului */
 .panel h2 {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 46px;
   font-style: italic;
   font-weight: 600;
   color: #713b4c;
-  margin-bottom: 25px;
+  margin: 0 0 25px;
 }
 
-/* Informatiile produsului */
+/* Informatiile despre produs */
 .panel p {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 27px;
@@ -43,7 +43,7 @@
   color: #713b4c;
 }
 
-/* Butonul roz pentru intoarcerea la produse */
+/* Butonul de revenire la produse */
 .backLink {
   display: inline-block;
   margin-top: 28px;
@@ -63,26 +63,139 @@
   transition: all 0.25s ease;
 }
 
-/* Efect la trecerea cu mouse-ul */
 .backLink:hover {
   background: #eeb7c9;
   transform: translateY(-2px);
 }
 
-/* Culori pentru modul intunecat */
+/* Fotografia obisnuita pentru lumanari */
+.imagineContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 30px auto;
+}
+
+/* Stilul general al fotografiilor */
+.imagineProdus {
+  display: block;
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  object-fit: contain;
+  border: 1px solid #efd7dd;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(116, 61, 80, 0.12);
+}
+
+/* PAGINA CADOURILOR PERSONALIZATE */
+
+/* Centram pagina cadourilor fata de ecran.
+   Folosim margini negative calculate din latimea ferestrei
+   pentru a iesi din containerul ingust al paginii. */
+
+/* Pagina cadourilor este centrata in containerul lat. */
+.panelCadou {
+  width: 100%;
+  max-width: 1650px;
+  margin: 25px auto;
+  padding: 35px 20px;
+  box-sizing: border-box;
+
+  position: static;
+  left: auto;
+  transform: none;
+}
+
+
+/* Fotografia si formularul sunt doua coloane egale.
+   Centrul dintre ele coincide cu centrul continutului. */
+.cadouLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 35px;
+
+  width: 100%;
+  max-width: 1550px;
+  margin: 35px auto;
+}
+
+/* Coloana din stanga */
+.cadouImagine {
+  width: 100%;
+  min-width: 0;
+  position: sticky;
+  top: 25px;
+}
+
+/* Fotografia mare a cadourilor */
+.cadouImagine .imagineProdus {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+
+  object-fit: contain;
+  border: 1px solid #efd7dd;
+  border-radius: 16px;
+
+  box-shadow: 0 8px 25px rgba(116, 61, 80, 0.12);
+}
+
+/* Coloana din dreapta cu formularul */
+.cadouFormular {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Culorile pentru modul intunecat */
 :global(.dark-mode) .panel h2,
 :global(.dark-mode) .panel p,
 :global(.dark-mode) .panel strong {
   color: #f8e9ee;
 }
 
+/* Adaptare pentru tableta si telefon */
+@media (max-width: 850px) {
+  .panelCadou {
+    width: 95%;
+    max-width: 100%;
+
+    margin: 25px auto;
+    padding: 20px 10px;
+
+    left: auto;
+    transform: none;
+  }
+
+  .cadouLayout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .cadouImagine {
+    position: static;
+  }
+}
+
 /* Adaptare pentru telefon */
 @media (max-width: 600px) {
+  .panel {
+    padding: 20px 10px;
+  }
+
   .panel h2 {
     font-size: 34px;
   }
 
   .panel p {
     font-size: 22px;
+  }
+
+  .imagineProdus {
+    max-width: 100%;
+    border-radius: 12px;
   }
 }

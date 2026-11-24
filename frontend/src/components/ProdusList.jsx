@@ -3,10 +3,12 @@ import ProdusCard from './ProdusCard.jsx'
 import styles from './ProdusList.module.css'
 
 // Etapa 8 - Lista produselor cu stiluri CSS Modules
+// Primeste si functia pentru adaugarea produselor in cos.
 export default function ProdusList({
   produse,
   schimbaDisponibilitate,
-  stergeProdus
+  stergeProdus,
+  adaugaInCos
 }) {
   // Verifica daca lista de produse este goala
   if (produse.length === 0) {
@@ -26,12 +28,18 @@ export default function ProdusList({
         <ProdusCard
           // ID-ul ajuta React sa identifice fiecare produs
           key={produs.id}
+
           // Trimite informatiile produsului catre card
           produs={produs}
+
           // Trimite functia pentru modificarea disponibilitatii
           schimbaDisponibilitate={schimbaDisponibilitate}
+
           // Trimite functia pentru stergerea produsului
           stergeProdus={stergeProdus}
+
+          // Trimite functia pentru adaugarea produsului in cos
+          adaugaInCos={adaugaInCos}
         />
       ))}
     </ul>

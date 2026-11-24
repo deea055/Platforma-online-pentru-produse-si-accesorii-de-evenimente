@@ -120,6 +120,79 @@ function ProdusePage() {
     (produs) => !produs.indisponibil
   ).length
 
+  // Adauga produsul selectat in cosul de cumparaturi.
+  // Cosul este salvat separat de produsele din API.
+  function adaugaInCos(produs) {
+    // Nu permite adaugarea produselor indisponibile.
+    if (produs.indisponibil) {
+      return
+    }
+
+    // Citeste cosul salvat anterior in browser.
+    // Daca nu exista un cos, foloseste o lista goala.
+    let cosSalvat = []
+
+    try {
+      const dateSalvate = JSON.parse(
+        localStorage.getItem('eventBoutiqueCos') || '[]'
+      )
+
+      // Verifica daca datele salvate reprezinta o lista.
+      if (Array.isArray(dateSalvate)) {
+        cosSalvat = dateSalvate
+      }
+    } catch {
+      // Daca datele salvate nu sunt valide,
+      // porneste de la un cos gol.
+      cosSalvat = []
+    }
+
+    // Cauta produsul dupa ID in cosul existent.
+    const produsExistent = cosSalvat.find(
+      (element) => String(element.id) === String(produs.id)
+    )
+
+    let cosActualizat
+
+    if (produsExistent) {
+      // Daca produsul exista deja in cos,
+      // creste cantitatea acestuia cu o bucata.
+      cosActualizat = cosSalvat.map((element) =>
+        String(element.id) === String(produs.id)
+          ? {
+              ...element,
+              cantitate: (Number(element.cantitate) || 0) + 1,
+            }
+          : element
+      )
+    } else {
+      // Daca produsul nu exista in cos,
+      // il adauga pentru prima data cu cantitatea 1.
+      cosActualizat = [
+        ...cosSalvat,
+        {
+          ...produs,
+          cantitate: 1,
+        },
+      ]
+    }
+
+    // Salveaza cosul actualizat in localStorage.
+    // Produsele raman salvate si dupa reincarcarea paginii.
+    try {
+      localStorage.setItem(
+        'eventBoutiqueCos',
+        JSON.stringify(cosActualizat)
+      )
+
+      // Confirma utilizatorului ca produsul a fost adaugat.
+      alert(`${produs.nume} a fost adaugat in cos!`)
+    } catch {
+      // Afiseaza un mesaj daca browserul nu permite salvarea.
+      alert('Cosul nu a putut fi salvat. Incearca din nou.')
+    }
+  }
+
   return (
     <>
       {/* Formularul pentru adaugarea produselor */}
@@ -169,11 +242,13 @@ function ProdusePage() {
                 : 'disponibile'}
             </p>
 
-            {/* Lista cu functiile de modificare si stergere */}
+            {/* Lista produselor cu functiile existente.
+                Transmite si functia pentru adaugarea in cos. */}
             <ProdusList
               produse={produseFiltrate}
               schimbaDisponibilitate={schimbaDisponibilitate}
               stergeProdus={stergeProdus}
+              adaugaInCos={adaugaInCos}
             />
           </>
         )}

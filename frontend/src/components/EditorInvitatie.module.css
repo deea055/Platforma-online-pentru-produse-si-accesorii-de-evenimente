@@ -1,0 +1,468 @@
+
+/* Importa fonturile folosite in editor.
+   Cormorant Garamond este pentru titluri si mesaj.
+   DM Sans este pentru formular.
+   Great Vibes este pentru numele mirilor. */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap');
+
+
+/* ==================================================
+   1. CONTAINERUL PRINCIPAL AL EDITORULUI
+   ================================================== */
+
+/* Editorul ocupa aproape toata latimea ecranului.
+   Centrarea permite pastrarea celor doua coloane mari. */
+.editor {
+  width: min(95vw, 1600px);
+  max-width: none;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 30px;
+  padding: 30px;
+  background: #fff9fa;
+  border: 1px solid #efd7dd;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+/* Titlul principal al editorului. */
+.editor > h3 {
+  margin: 0 0 24px;
+  color: #743d50;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 34px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Imparte editorul in doua coloane egale.
+   Stanga este formularul, dreapta este previzualizarea. */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  width: 100%;
+  align-items: start;
+}
+
+
+/* ==================================================
+   2. FORMULARUL DIN STANGA
+   ================================================== */
+
+/* Formularul ocupa intreaga coloana din stanga. */
+.formular {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #efd7dd;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+/* Titlurile formularului si previzualizarii. */
+.formular h4,
+.previzualizare h4 {
+  margin: 0 0 14px;
+  color: #743d50;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 29px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Etichetele campurilor folosesc un font modern. */
+.formular label {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #895468;
+  letter-spacing: 0.3px;
+}
+
+/* Casutele ocupa intreaga latime a formularului. */
+.formular input,
+.formular textarea {
+  display: block;
+  width: 100%;
+  max-width: none;
+  min-height: 52px;
+  padding: 14px 16px;
+  box-sizing: border-box;
+  border: 1px solid #e4bdc8;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #633f4d;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Evidentiaza campul selectat pentru scriere. */
+.formular input:focus,
+.formular textarea:focus {
+  outline: 2px solid #d79aac;
+  outline-offset: 1px;
+}
+
+/* Mesajul are o casuta mai inalta. */
+.formular textarea {
+  min-height: 145px;
+  resize: vertical;
+}
+
+
+/* ==================================================
+   3. PANOU PREVIZUALIZARE
+   ================================================== */
+
+/* Previzualizarea ocupa intreaga coloana din dreapta. */
+.previzualizare {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  padding: 25px;
+  background: #ffffff;
+  border: 1px solid #efd7dd;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+/* Invitatia are forma dreptunghiulara.
+   Imaginea romantica este estompata cu un strat alb. */
+.invitatie {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: none;
+  min-height: 750px;
+  padding: 65px 45px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #e5c9ce;
+  border-radius: 8px;
+
+  background-color: #f8f2f1;
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.55),
+      rgba(255, 255, 255, 0.55)
+    ),
+    url('/images/fundal-invitatie.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #754253;
+  text-align: center;
+}
+
+/* Pastreaza elementele de text deasupra fundalului. */
+.invitatie > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ==================================================
+   4. TITLUL SI ORNAMENTELE INVITATIEI
+   ================================================== */
+
+/* Ornamentul auriu din partea de sus. */
+.ornament {
+  color: #b38a46;
+  font-size: 22px;
+  letter-spacing: 5px;
+  margin-bottom: 5px;
+}
+
+/* Titlul invitatiei este elegant si visiniu. */
+.subtitlu {
+  margin: 0;
+  color: #782f43;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 27px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 3px;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+/* Separatoarele aurii dintre sectiuni. */
+.separator {
+  color: #b38a46;
+  font-size: 17px;
+  letter-spacing: 3px;
+  margin: 4px 0;
+}
+
+
+/* ==================================================
+   5. NUMELE MIRILOR
+   ================================================== */
+
+/* Aseaza numele mirilor unul sub altul. */
+.nume {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  margin: 12px 0;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+/* Numele mirilor sunt caligrafice si visinii. */
+.numePersoana {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(46px, 5vw, 70px);
+  font-weight: 400;
+  font-style: normal;
+  color: #802c46;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+/* Simbolul dintre nume este auriu. */
+.nume .ampersand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 600;
+  color: #b38a46;
+}
+
+
+/* ==================================================
+   6. MESAJUL INVITATIEI
+   ================================================== */
+
+/* Mesajul este centrat si are un font rafinat.
+   Latimea limitata il tine departe de florile de pe margini. */
+.mesaj {
+  width: 100%;
+  max-width: 470px;
+  margin: 12px auto;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 25px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #754253;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+
+/* ==================================================
+   7. DATA SI ORA EVENIMENTULUI
+   ================================================== */
+
+/* Incadreaza data intre doua ornamente aurii. */
+.detaliuData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  color: #b38a46;
+  margin-top: 12px;
+}
+
+/* Evidentiaza data nuntii. */
+.detaliuData .data {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 29px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #802c46;
+}
+
+/* Stilizeaza ora evenimentului. */
+.ora {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 25px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #754253;
+}
+
+
+/* ==================================================
+   8. RESTAURANTUL SI GOOGLE MAPS
+   ================================================== */
+
+/* Restaurantul este afisat ca link catre Google Maps. */
+.locatie {
+  display: inline-block;
+  max-width: 470px;
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 27px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.5;
+  color: #802c46;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease;
+}
+
+/* Cand trecem cu mouse-ul peste restaurant,
+   culoarea devine aurie si apare sublinierea. */
+a.locatie:hover {
+  color: #b38a46;
+  text-decoration: underline;
+}
+
+/* Evidentiaza linkul si pentru navigarea cu tastatura. */
+a.locatie:focus-visible {
+  outline: 2px solid #b38a46;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+/* Explica utilizatorului ca restaurantul este accesibil. */
+.indiciuMaps {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #916e60;
+  letter-spacing: 0.3px;
+}
+
+
+/* ==================================================
+   9. ADAPTAREA PENTRU TELEFON
+   ================================================== */
+
+/* Pe ecranele mici, formularul si previzualizarea
+   se aseaza unul sub celalalt. */
+@media (max-width: 900px) {
+  .editor {
+    width: 100%;
+    left: auto;
+    transform: none;
+    padding: 16px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .formular,
+  .previzualizare {
+    padding: 18px;
+  }
+
+  .invitatie {
+    min-height: 550px;
+    padding: 45px 25px;
+    gap: 10px;
+  }
+
+  .subtitlu {
+    font-size: 21px;
+  }
+
+  .numePersoana {
+    font-size: 48px;
+  }
+
+  .mesaj {
+    font-size: 21px;
+  }
+
+  .detaliuData .data,
+  .locatie {
+    font-size: 23px;
+  }
+
+  .ora {
+    font-size: 21px;
+  }
+}
+
+/* Ajustari suplimentare pentru telefoane inguste. */
+@media (max-width: 480px) {
+  .editor {
+    padding: 12px;
+  }
+
+  .formular,
+  .previzualizare {
+    padding: 14px;
+  }
+
+  .invitatie {
+    padding: 35px 15px;
+  }
+
+  .subtitlu {
+    font-size: 17px;
+    letter-spacing: 2px;
+  }
+
+  .numePersoana {
+    font-size: 42px;
+  }
+
+  .mesaj {
+    font-size: 19px;
+  }
+
+  .ornament,
+  .separator {
+    letter-spacing: 1px;
+  }
+}
+
+
+/* Mareste data nuntii si o evidentiaza cu visiniu.
+   Pastreaza stilul elegant al invitatiei. */
+.detaliuData .data {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  font-style: normal;
+  color: #802c46;
+  line-height: 1.3;
+}
+
+/* Mareste ora evenimentului si foloseste un font elegant. */
+.ora {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 32px;
+  font-weight: 600;
+  font-style: italic;
+  color: #802c46;
+  line-height: 1.4;
+}
+
+/* Adapteaza dimensiunile pentru telefon. */
+@media (max-width: 600px) {
+  .detaliuData .data {
+    font-size: 29px;
+  }
+
+  .ora {
+    font-size: 26px;
+  }
+}

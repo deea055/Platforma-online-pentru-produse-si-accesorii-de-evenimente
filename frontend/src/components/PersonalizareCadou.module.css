@@ -1,0 +1,257 @@
+
+/* Containerul principal pentru personalizarea cadoului */
+.container {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fffaf9;
+  border: 1px solid #efd7dd;
+  border-radius: 18px;
+  color: #71394c;
+  text-align: left;
+  box-shadow: 0 8px 25px rgba(116, 61, 80, 0.08);
+}
+
+.container h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 32px;
+  font-style: italic;
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.sectiune {
+  margin: 22px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #efd7dd;
+}
+
+.sectiune h4,
+.rezumat h4,
+.ajutor h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 25px;
+  font-style: italic;
+  margin: 0 0 12px;
+}
+
+.sectiune label {
+  display: block;
+  margin: 12px 0 6px;
+}
+
+.sectiune select,
+.sectiune input[type="text"],
+.sectiune textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e7c4ce;
+  border-radius: 10px;
+  background: white;
+  color: #71394c;
+  font: inherit;
+}
+
+.sectiune textarea {
+  resize: vertical;
+  margin-top: 12px;
+}
+
+.optiuni {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.optiuni .optiune {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 12px;
+  background: #fff0f3;
+  border: 1px solid #efd7dd;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.optiune input {
+  accent-color: #c18094;
+}
+
+.rezumat {
+  padding: 22px;
+  background: #fbe9ee;
+  border-radius: 14px;
+  overflow-wrap: anywhere;
+}
+
+.rezumat p {
+  margin: 8px 0;
+}
+
+.butonCos,
+.butonWhatsApp {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.butonCos {
+  margin-top: 20px;
+  background: #c18094;
+}
+
+.butonCos:hover:not(:disabled) {
+  background: #a9627b;
+}
+
+.butonCos:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ajutor {
+  margin-top: 25px;
+  padding: 24px;
+  background: #f7f2f0;
+  border: 1px solid #efd7dd;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.ajutor p {
+  line-height: 1.6;
+}
+
+.butonWhatsApp {
+  margin-top: 18px;
+  background: #25d366;
+}
+
+.butonWhatsApp:hover {
+  background: #1da851;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 18px;
+  }
+
+  .optiuni {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Adaptarea culorilor pentru modul intunecat */
+:global(.dark-mode) .container {
+  background: #443544;
+  color: #f8e9ee;
+  border-color: #705466;
+}
+
+:global(.dark-mode) .rezumat,
+:global(.dark-mode) .ajutor,
+:global(.dark-mode) .optiuni .optiune {
+  background: #594251;
+  color: #f8e9ee;
+  border-color: #705466;
+}
+
+
+/* Formularul ocupa toata coloana din dreapta. */
+.container {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+/* Titlul principal al personalizarii. */
+.container h3 {
+  font-size: 36px;
+}
+
+/* Titlurile sectiunilor. */
+.sectiune h4,
+.rezumat h4,
+.ajutor h4 {
+  font-size: 28px;
+}
+
+/* Campurile formularului. */
+.sectiune select,
+.sectiune input[type="text"],
+.sectiune textarea {
+  font-size: 17px;
+}
+
+/* Optiunile pentru continutul cutiei. */
+.optiuni .optiune {
+  font-size: 17px;
+}
+
+/* Butoanele de actiune. */
+.butonCos,
+.butonWhatsApp {
+  font-size: 19px;
+}
+
+
+/* Formularul ocupa toata coloana din dreapta */
+.container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 30px;
+  box-sizing: border-box;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* Titlul principal */
+.container h3 {
+  font-size: 38px;
+}
+
+/* Titlurile sectiunilor */
+.sectiune h4,
+.rezumat h4,
+.ajutor h4 {
+  font-size: 29px;
+}
+
+/* Campurile de personalizare */
+.sectiune select,
+.sectiune input[type="text"],
+.sectiune textarea {
+  width: 100%;
+  font-size: 18px;
+  padding: 14px;
+}
+
+/* Optiunile pentru continutul cutiei */
+.optiuni .optiune {
+  font-size: 18px;
+}
+
+/* Butoanele */
+.butonCos,
+.butonWhatsApp {
+  font-size: 20px;
+}

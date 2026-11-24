@@ -11,6 +11,9 @@ import ProdusDetaliuPage from './pages/ProdusDetaliuPage'
 import DesprePage from './pages/DesprePage'
 import NotFoundPage from './pages/NotFoundPage'
 
+// Importa pagina pentru cosul de cumparaturi
+import CosPage from './pages/CosPage.jsx'
+
 // Configurarea rutelor aplicatiei Event Boutique
 function App() {
   return (
@@ -29,6 +32,9 @@ function App() {
 
         {/* Pagina cu informatii despre aplicatie */}
         <Route path="/despre" element={<DesprePage />} />
+
+        {/* Pagina cosului de cumparaturi */}
+        <Route path="/cos" element={<CosPage />} />
 
         {/* Pagina pentru adrese inexistente */}
         <Route path="*" element={<NotFoundPage />} />

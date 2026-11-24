@@ -7,20 +7,8 @@
       "indisponibil": false
     },
     {
-      "id": 2,
-      "nume": "Topper personalizat",
-      "tip": "Accesorii",
-      "indisponibil": false
-    },
-    {
       "id": 3,
       "nume": "Cutie cadou personalizată",
-      "tip": "Accesorii",
-      "indisponibil": false
-    },
-    {
-      "id": 4,
-      "nume": "Cocardă pentru nuntă",
       "tip": "Accesorii",
       "indisponibil": false
     },
@@ -29,12 +17,6 @@
       "nume": "Lumânare personalizată",
       "tip": "Lumânări",
       "indisponibil": false
-    },
-    {
-      "nume": "Produs test intarziere",
-      "tip": "Accesorii",
-      "indisponibil": false,
-      "id": 7
     }
   ]
 }

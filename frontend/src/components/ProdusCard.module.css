@@ -96,6 +96,41 @@
   background: #f9e5e9;
 }
 
+/* Butonul pentru adaugarea produsului in cos.
+   Foloseste aceleasi dimensiuni, font si forma
+   ca butonul Sterge, dar pastreaza fundalul roz. */
+.cartButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #c18094;
+  color: #ffffff;
+  border: 1px solid #c18094;
+  border-radius: 20px;
+  padding: 8px 12px;
+
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 600;
+
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* Evidentiaza butonul la trecerea mouse-ului */
+.cartButton:hover:not(:disabled) {
+  background: #a9627b;
+}
+
+/* Marcheaza produsele care nu pot fi comandate */
+.cartButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* Stiluri pentru modul intunecat */
 :global(.dark-mode) .card {
   background: #443544;
@@ -119,4 +154,52 @@
 
 :global(.dark-mode) .deleteButton:hover {
   background: #694658;
+}
+
+/* Pastreaza culoarea roz a butonului de cos
+   si atunci cand este activ modul intunecat. */
+:global(.dark-mode) .cartButton {
+  background: #c18094;
+  color: #ffffff;
+  border-color: #c18094;
+}
+
+:global(.dark-mode) .cartButton:hover:not(:disabled) {
+  background: #a9627b;
+}
+
+
+/* Fotografia produsului din lista principala.
+   Dimensiunile fixe pastreaza toate cardurile uniforme. */
+.productImage {
+  width: 85px;
+  height: 85px;
+
+  /* Fotografia umple spatiul fara sa se deformeze. */
+  object-fit: cover;
+  object-position: center;
+
+  /* Pastreaza aspectul elegant al site-ului. */
+  border: 1px solid #ecd9d9;
+  border-radius: 10px;
+
+  /* Impiedica micsorarea fotografiei. */
+  flex-shrink: 0;
+}
+
+/* Permite informatiilor sa se adapteze langa fotografie. */
+.main > div {
+  min-width: 0;
+}
+
+/* Adapteaza dimensiunea fotografiei pe telefon. */
+@media (max-width: 600px) {
+  .productImage {
+    width: 65px;
+    height: 65px;
+  }
+
+  .card {
+    flex-wrap: wrap;
+  }
 }

@@ -1,0 +1,103 @@
+
+/* Importa fonturile folosite pentru pagina cosului.
+   Great Vibes este folosit pentru titlul principal.
+   Cormorant Garamond este folosit pentru numele produselor.
+   DM Sans este folosit pentru textele secundare si butoane. */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+/* Titlul principal al paginii Cosul meu */
+.titlu {
+  font-family: 'Great Vibes', cursive !important;
+  font-size: 62px !important;
+  font-weight: 400;
+  color: #853e57 !important;
+  line-height: 1.3;
+  margin-bottom: 12px !important;
+}
+
+/* Textul care arata numarul de produse din cos */
+.subtitlu {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #976477 !important;
+  letter-spacing: 0.3px;
+}
+
+/* Numele fiecarui produs */
+.numeProdus {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 29px !important;
+  font-weight: 700;
+  color: #79394f !important;
+  line-height: 1.2;
+}
+
+/* Categoria produsului */
+.categorie {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #976477 !important;
+}
+
+/* Numarul de bucati selectate */
+.cantitate {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 19px !important;
+  font-weight: 700;
+  color: #79394f !important;
+}
+
+/* Butoanele pentru cresterea si scaderea cantitatii */
+.butonCantitate {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 21px !important;
+  font-weight: 600;
+}
+
+/* Butonul pentru eliminarea unui produs */
+.butonElimina {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 15px !important;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* Sectiunea cu totalul produselor */
+.total {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 27px !important;
+  font-weight: 700;
+  color: #79394f !important;
+}
+
+/* Linkul pentru continuarea cumparaturilor */
+.continua {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 24px !important;
+  font-weight: 600;
+  color: #853e57 !important;
+  text-decoration: none;
+}
+
+/* Efect la trecerea mouse-ului peste link */
+.continua:hover {
+  color: #b66e86 !important;
+  text-decoration: underline;
+}
+
+/* Adapteaza dimensiunile fonturilor pentru telefon */
+@media (max-width: 600px) {
+  .titlu {
+    font-size: 48px !important;
+  }
+
+  .numeProdus {
+    font-size: 24px !important;
+  }
+
+  .total {
+    font-size: 23px !important;
+  }
+}

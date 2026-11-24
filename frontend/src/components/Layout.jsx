@@ -33,6 +33,18 @@ function Layout() {
             {darkMode ? '☀️ Mod luminos' : '🌙 Mod intunecat'}
           </button>
 
+          {/* Butonul cosului de cumparaturi.
+              Este pozitionat sub butonul pentru tema.
+              La apasare deschide pagina /cos. */}
+          <NavLink
+            to="/cos"
+            className={styles.cartButton}
+            aria-label="Deschide cosul de cumparaturi"
+          >
+            <span aria-hidden="true">🛒</span>
+            <span>Cosul meu</span>
+          </NavLink>
+
           {/* Simbolul original */}
           <div className={styles.headerSymbol}>♡♡</div>
 

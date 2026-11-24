@@ -135,6 +135,15 @@
   grid-template-columns: 1fr;
 }
 
+/* Pagina de detalii ocupa aproape toata latimea ecranului.
+   Nu modificam pagina principala cu lista de produse. */
+.container:has([data-testid="detail"]) {
+  width: 100%;
+  max-width: 1700px;
+  grid-template-columns: minmax(0, 1fr);
+  box-sizing: border-box;
+}
+
 /* Footerul original */
 .footer {
   text-align: center;
@@ -210,3 +219,60 @@
     font-size: 22px;
   }
 }
+
+
+
+/* Butonul cosului de cumparaturi.
+   Este pozitionat in dreapta bannerului,
+   sub butonul pentru schimbarea temei. */
+.cartButton {
+  position: absolute;
+  top: 95px;
+  right: 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  background: #fff7fa;
+  color: #713b4c;
+  border: 1px solid #d992a9;
+  border-radius: 30px;
+
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 600;
+  text-decoration: none;
+
+  box-shadow: 0 3px 10px rgba(120, 50, 75, 0.12);
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+/* Evidentiaza butonul cand utilizatorul trece cu mouse-ul. */
+.cartButton:hover {
+  background: #f9dce6;
+  color: #713b4c;
+  transform: translateY(-2px);
+}
+
+/* Pastreaza iconita la o dimensiune potrivita. */
+.cartButton span:first-child {
+  font-size: 20px;
+  font-style: normal;
+}
+
+/* Adapteaza pozitia butonului pe ecrane mici. */
+@media (max-width: 600px) {
+  .cartButton {
+    top: 95px;
+    right: 10px;
+    padding: 7px 11px;
+    font-size: 15px;
+  }
+}
+
